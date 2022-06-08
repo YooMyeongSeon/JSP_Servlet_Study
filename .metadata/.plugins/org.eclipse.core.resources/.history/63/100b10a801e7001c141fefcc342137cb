@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	input {
+		width : 100px;
+	}
+</style>
+</head>
+<body>
+	<form action="Quiz_01" method="get">
+		<label for="ko_score">국어 점수 : </label>
+		<input type="text" id="ko_score" name="ko_score"><br>
+		<label for="en_score">영어 점수 : </label>
+		<input type="text" id="en_score" name="en_score"><br>
+		<label for="ma_score">수학 점수 : </label>
+		<input type="text" id="ma_score" name="ma_score"><br>
+		<input type="submit" value="입력">
+	</form>
+</body> 
+</html>

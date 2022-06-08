@@ -1,0 +1,11 @@
+INDEX VERSION 1.131
+C:\Users\GREEN\Documents\JSP_Study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\340938319.index
+\web03\src
+C:\Users\GREEN\Documents\JSP_Study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1308225674.index
+\web03\src
+C:\Users\GREEN\Documents\JSP_Study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2713873941.index
+\web01\src
+C:\Users\GREEN\Documents\JSP_Study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1061479972.index
+\web03\src
+C:\Users\GREEN\Documents\JSP_Study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\962664709.index
+\web04\src

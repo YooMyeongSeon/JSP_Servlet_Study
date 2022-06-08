@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+		String subject = "JSP!!";
+	%>
+	<h1>hello <%out.println(subject);%></h1>
+	<hr>
+	<%
+		int num1 = 10;
+		int num2 = 20;
+		int result = num1 + num2;
+		
+		out.println(num1 + " + " + num2 + " = " + result); //10 + 20 =30
+	%>
+	<%!
+		Stiring name = "홍길동";
+	%>
+	
+	<%
+		out.println("이름 : " + name + "<br>");
+	%>
+</body>
+</html>

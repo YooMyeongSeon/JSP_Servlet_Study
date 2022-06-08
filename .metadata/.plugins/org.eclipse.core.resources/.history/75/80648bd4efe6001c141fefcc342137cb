@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%! //이미 저장된 아이디와 비밀번호
+		String s_id = "green";
+		String s_pwd = "1234";
+		String s_name = "유명선";
+	%>
+	<% //입력받은 아이디와 비밀번호를 확인
+	String u_id = request.getParameter("userId");
+	String U_pwd = request.getParameter("userPassword");
+	
+	if(u_id.equals(s_id) && U_pwd.equals(s_pwd)) { //로그인 성공
+		response.sendRedirect("Ex_04_Main.jsp?name="+s_name);
+	} else { //로그인 실패
+		response.sendRedirect("Ex_04_LoginFail.jsp");
+	}
+	%>
+</body>
+</html>

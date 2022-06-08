@@ -1,0 +1,11 @@
+package web04;
+
+public class Test {
+	
+	public void chk() {
+		
+		name.add("홍길동");
+		
+	}
+
+}
