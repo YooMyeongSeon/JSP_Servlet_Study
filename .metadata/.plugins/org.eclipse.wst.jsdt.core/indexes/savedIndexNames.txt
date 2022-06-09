@@ -1,11 +1,8 @@
-INDEX VERSION 1.4+C:\Users\GREEN\Documents\JSP_Study\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-3511036668.index
-2780431600.index
+INDEX VERSION 1.4+C:\Users\GREEN\Documents\JSP_Servlet_Study\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 941985737.index
-2941470051.index
-2713873941.index
-1478152900.index
-2455117272.index
-1780532608.index
+3511036668.index
+3593203429.index
+1327677279.index
 1213168454.index
 2789284458.index
+1308225674.index
