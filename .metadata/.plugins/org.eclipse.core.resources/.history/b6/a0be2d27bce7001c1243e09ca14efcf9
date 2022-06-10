@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%--액션 태그로 값을 저장하기--%>
+	<jsp:useBean id="m1" class="com.green.beans.Member" scope="session"/>
+	
+	<jsp:setProperty property="name" name="m1" value="홍길동"/>
+</body>
+</html>

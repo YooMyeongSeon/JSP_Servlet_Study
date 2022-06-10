@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="Quiz_03" method="get">
+		<label><input type="radio" name="dan" value="dan1" checked>1단</label><br>
+		<label><input type="radio" name="dan" value="dan2">2단</label><br>
+		<label><input type="radio" name="dan" value="dan3">3단</label><br>
+		<label><input type="radio" name="dan" value="dan4">4단</label><br>
+		<label><input type="radio" name="dan" value="dan5">5단</label><br>
+		<label><input type="radio" name="dan" value="dan6">6단</label><br>
+		<label><input type="radio" name="dan" value="dan7">7단</label><br>
+		<label><input type="radio" name="dan" value="dan8">8단</label><br>
+		<label><input type="radio" name="dan" value="dan9">9단</label><br>
+		<input type="submit" value="입력">
+	</form>
+</body>
+</html>

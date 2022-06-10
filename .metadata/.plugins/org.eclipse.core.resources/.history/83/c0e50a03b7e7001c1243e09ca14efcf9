@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+		//자바빈 사용(패키지명을 앞에 붙여야 한다.)
+		
+		//자바빈 객체를 생성
+		com.green.beans.Member m1 = new com.green.beans.Member();
+	
+		//자바빈 객체에 데이터 저장
+		m1.setName("홍길동");
+		m1.setUserId("hong");
+		
+		request.getRequestDispatcher(path).forward(request, reponse);
+	%>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>스크립트릿을 이용한 색상 출력</h3>
+	<%
+		String color = request.getParameter("color");
+	
+		if (color.equals("red")) {
+			%><span style="color:red;">빨강</span><%
+		} else if (color.equals("blue")) {
+			%><span style="color:blue;">파랑</span><	
+		} else {
+			out.println(<span style=\"color:green;"\>초록</span>);<%
+		}
+	%>
+</body>
+</html>

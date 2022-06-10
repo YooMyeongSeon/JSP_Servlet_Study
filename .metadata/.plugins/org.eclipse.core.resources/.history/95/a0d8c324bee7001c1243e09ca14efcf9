@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="com.green.beans.Member"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+		request.setCharacterEncoding("UTF-8"); //한글로 읽어들임
+	%>
+	<%--1. 자바빈 생성--%>
+		<%--1)스크립트릿으로 자바빈 생성--%>
+			<%
+				Member m1 = new Member();
+				session.setAttribute("m1", m1);
+			%>
+		<%--2)액션 태그로 자바빈 생성--%>
+			<jsp:useBean id="m2" class="com.green.beans.Member"/>
+	<%--2. 데이터 입력--%>
+	
+	<%--3. 데이터 출력--%>
+</body>
+</html>

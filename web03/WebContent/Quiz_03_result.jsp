@@ -8,6 +8,7 @@
 </head>
 <body>
 	<%
+		request.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("name");
 		double result = Double.parseDouble(request.getParameter("result"));
 		String corona;

@@ -1,0 +1,5 @@
+package com.green.beans;
+
+public class Member {
+
+}

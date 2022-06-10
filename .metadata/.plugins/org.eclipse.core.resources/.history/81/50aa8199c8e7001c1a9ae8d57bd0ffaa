@@ -1,0 +1,35 @@
+package Quiz;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/Quiz_04")
+public class Quiz_04 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String name = request.getParameter("name");
+		int result = Integer.parseInt(request.getParameter("result"));
+		double result_01 = (double)result;
+		String corona;
+		
+		if (result_01 > 37.5) {
+			corona = "음성";
+		} else {
+			corona = "양성";
+		}
+		
+		response.setContentType("text/html; charset=utf-8");
+		
+		PrintWriter out = response.getWriter();
+		out.println("<html><body>");
+		out.println(name + "님, 코로나 '" + corona + "' 입니다.<br>");
+		out.println("</body></html>");
+	}
+}

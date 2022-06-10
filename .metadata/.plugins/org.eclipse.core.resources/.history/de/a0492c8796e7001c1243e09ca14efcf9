@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.net.URLEncoder"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>액션 태그 Forward 예제</h1>
+	
+	<jsp:forward page="Ex_07_TagetPage.jsp">
+		<jsp:param value='URLEncoder.encode("홍길동", "UTF-8"))' name="name"/> <!--괄호를 닫기 전에 /를 붙이며 닫기 태그를 생략(액션태그)-->
+	</jsp:forward>
+	<%
+		//request.setAttribute("name", "유명선");
+		//request.getRequestDispatcher("Ex_07_TargetPage.jsp").forward(request, response); 과 같은 기능의 태그
+	%>
+</body>
+</html>
