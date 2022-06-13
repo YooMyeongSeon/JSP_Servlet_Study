@@ -6,3 +6,4 @@
 ### chap5 : [쿠키와 세션](web05)
 ### chap6 : [자바빈과 액션 태그](web06)
 ### chap7 : [표현언어와 JSTL](web07)
+### chap8 : [데이터베이스와 JDBC](web08)
