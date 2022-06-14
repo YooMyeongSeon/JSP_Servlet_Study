@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Wed Jun 15 00:17:14 KST 2022
+org.eclipse.jst.jee.server\:web03=C\:\\Users\\scnel\\Documents\\JSP_Servlet_Study\\apache-tomcat-8.5.79\\wtpwebapps\\web03
+org.eclipse.jst.jee.server\:web02=C\:\\Users\\scnel\\Documents\\JSP_Servlet_Study\\apache-tomcat-8.5.79\\wtpwebapps\\web02

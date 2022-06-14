@@ -5,6 +5,6 @@
 ### chap4 : [JSP 내장 객체와 액션 태그](web04)
 ### chap5 : [쿠키와 세션](web05)
 ### chap6 : [자바빈과 액션 태그](web06)
-### chap7 : [표현언어와 JSTL](web07)
+### chap7 : [표현언어(EL)와 JSTL](web07)
 ### chap8 : [데이터베이스와 JDBC](web08)
 ### chap9 : [회원 관리 시스템 구축](web09)

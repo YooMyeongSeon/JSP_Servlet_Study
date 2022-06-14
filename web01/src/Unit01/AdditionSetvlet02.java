@@ -36,7 +36,7 @@ public class AdditionSetvlet02 extends HttpServlet {
 		request.setAttribute("num2",num2);
 		request.setAttribute("add",add);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("Ex_03.jsp"); //MVC
+		RequestDispatcher dispatcher = request.getRequestDispatcher("Ex_03_Mvc.jsp"); //MVC
 		dispatcher.forward(request, response);
 	}
 

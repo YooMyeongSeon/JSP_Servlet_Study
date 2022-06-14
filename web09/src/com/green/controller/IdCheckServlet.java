@@ -17,9 +17,7 @@ public class IdCheckServlet extends HttpServlet {
 		String userId = request.getParameter("userId");
 		
 		Member_DAO dao = Member_DAO.getInstance();
-		int result = dao.confirmId("userId");
-		
-		
+		int result = dao.confirmId(userId);
 		
 		request.setAttribute("userId", userId);
 		request.setAttribute("result", result);

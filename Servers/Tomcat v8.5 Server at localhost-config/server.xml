@@ -158,7 +158,7 @@
       <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle.interstander.com:41521:XE" username="green03"/>
               
       </Context>
-      </Host>
+      <Context docBase="web03" path="/web03" reloadable="true" source="org.eclipse.jst.jee.server:web03"/></Host>
     </Engine>
   </Service>
 </Server>

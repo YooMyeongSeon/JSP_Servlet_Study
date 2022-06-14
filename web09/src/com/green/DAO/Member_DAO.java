@@ -176,7 +176,6 @@ public class Member_DAO { //데이터베이스 연동을 위한 클래스(※싱
 				result = -1;
 			}
 			
-			System.out.println("중복체크"+result);
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
