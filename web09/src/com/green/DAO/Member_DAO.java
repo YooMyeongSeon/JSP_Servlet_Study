@@ -189,4 +189,37 @@ public class Member_DAO { //데이터베이스 연동을 위한 클래스(※싱
 		}
 		return result;
 	}
+
+	public int updateMember(Member_Vo mVo) {
+		int result = -1;
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		
+		String sql = "UPDATE member SET userpw=?, email=?, phone=?, admin=? WHERE userid=?";
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, mVo.getUserPw());
+			psmt.setString(2, mVo.getEmail());
+			psmt.setString(3, mVo.getPhone());
+			psmt.setInt(4, mVo.getAdmin());
+			psmt.setString(5, mVo.getUserId());
+			
+			result = psmt.executeUpdate();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(psmt!=null)psmt.close();
+				if(conn!=null)conn.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
 }

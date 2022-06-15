@@ -153,12 +153,11 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
       
-      <Context docBase="web09" path="/web09" reloadable="true" source="org.eclipse.jst.jee.server:web09">
       
-      <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle.interstander.com:41521:XE" username="green03"/>
-              
+      <Context docBase="web09_coffee" path="/web09_coffee" reloadable="true" source="org.eclipse.jst.jee.server:web09_coffee">
+    	<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle.interstander.com:41521:XE" username="green03"/>
       </Context>
-      <Context docBase="web03" path="/web03" reloadable="true" source="org.eclipse.jst.jee.server:web03"/></Host>
+      <Context docBase="web09" path="/web09" reloadable="true" source="org.eclipse.jst.jee.server:web09"/></Host>
     </Engine>
   </Service>
 </Server>

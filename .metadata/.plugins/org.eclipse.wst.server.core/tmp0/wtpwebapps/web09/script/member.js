@@ -74,3 +74,27 @@ function idOk() {
 	
 	self.close();
 }
+
+function updateCheck() {
+	//암호 입력 여부
+	if (document.frm.userPw.value.length == 0) {
+		alert('비밀번호를 입력하세요');
+		document.frm.userPw.focus();
+		return false;
+	}
+	//전화번호 입력 여부
+	if (document.frm.phone.value.length == 0) {
+		alert('전화번호를 입력하세요');
+		document.frm.phone.focus();
+		return false;
+	}
+	//암호 일치 여부
+	if (document.frm.userPw.value != document.frm.pwCheck.value) {
+		alert('비밀번호 확인이 일치하지 않습니다.');
+		document.frm.userPw.value = "";
+		document.frm.pwCheck.value = "";
+		document.frm.userPw.focus();
+		return false;
+	}
+	return true;
+}
