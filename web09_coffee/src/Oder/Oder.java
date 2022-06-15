@@ -20,12 +20,12 @@ public class Oder extends HttpServlet {
 		HttpSession session = request.getSession();
 		ArrayList<Coffee> coffeeList = (ArrayList<Coffee>)session.getAttribute("coffeeList");
 		
-		int cno = Integer.parseInt(request.getParameter("coffee"));
+		String cname = request.getParameter("coffee");
 		String size = request.getParameter("size");
 		int ea = Integer.parseInt(request.getParameter("ea"));
 		
 		DAO dao = DAO.getInstance();
-		Coffee coffee = dao.getCoffee(cno, size, ea);
+		Coffee coffee = dao.getCoffee(cname, size, ea);
 		
 		if (coffeeList != null) {
 			coffeeList.add(coffee);
@@ -33,7 +33,7 @@ public class Oder extends HttpServlet {
 			coffeeList = new ArrayList<Coffee>();
 			coffeeList.add(coffee);
 		}
-		
+
 		session.setAttribute("coffeeList", coffeeList);
 		request.getRequestDispatcher("Cafe.jsp").forward(request, response);
 	}

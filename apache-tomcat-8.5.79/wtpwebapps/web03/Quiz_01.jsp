@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Quiz_01</title>
 </head>
 <body>
-	<h1>문제 1</h1>
+	<h1>Quiz_01</h1>
 	<form action="Quiz_01_result.jsp" method="POST">
 		<label for="ko_score">국어 점수 : </label>
 		<input type="text" id="ko_score" name="ko_score"><br>

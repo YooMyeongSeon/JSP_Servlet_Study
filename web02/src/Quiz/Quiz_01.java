@@ -21,8 +21,7 @@ public class Quiz_01 extends HttpServlet {
 		int sum = ko_score + en_score + ma_score;
 		int avg = sum / 3;
 		
-		
-		response.setContentType("text/html; charset=utf-8"); //출력할 값을 한글로 변경
+		response.setContentType("text/html; charset=utf-8");
 		
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>");

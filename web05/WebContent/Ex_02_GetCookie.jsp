@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>쿠키</title>
 </head>
 <body>
-	<h3>쿠키 읽어오기</h3>
+	<h1>쿠키 읽어오기</h1>
 	<%
 		//쿠키를 가져오기
 		Cookie[] cookies = request.getCookies();

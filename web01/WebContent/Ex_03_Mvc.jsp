@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>웹 애플리케이션 작성</title>
 </head>
 <body>
-	<p>${num1} + ${num2} = ${add}</p>
+	<p>${num1} + ${num2} = ${add}</p> <%-- AdditionSetvlet02의 서블릿에서 가져온 데이터를 출력 --%>
 </body>
 </html>

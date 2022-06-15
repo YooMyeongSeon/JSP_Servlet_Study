@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>웹 애플리케이션 작성</title>
 </head>
 <body>
 	<% //스크립트릿 태그

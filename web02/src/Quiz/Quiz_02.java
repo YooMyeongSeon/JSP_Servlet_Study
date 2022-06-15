@@ -45,5 +45,4 @@ public class Quiz_02 extends HttpServlet {
 		out.println("</table>");
 		out.println("</body></html>");
 	}
-
 }

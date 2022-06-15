@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>웹 애플리케이션 작성</title>
 </head>
 <body>
 	<h1>hello world!</h1>

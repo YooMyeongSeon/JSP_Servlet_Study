@@ -3,7 +3,7 @@ package Oder;
 public class Coffee {
 	private String cname;
 	private String size;
-	private int pice;
+	private int price;
 	private int ea;
 	
 	public String getCname() {
@@ -18,11 +18,11 @@ public class Coffee {
 	public void setSize(String size) {
 		this.size = size;
 	}
-	public int getPice() {
-		return pice;
+	public int getPrice() {
+		return price;
 	}
-	public void setPice(int pice) {
-		this.pice = pice;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 	public int getEa() {
 		return ea;

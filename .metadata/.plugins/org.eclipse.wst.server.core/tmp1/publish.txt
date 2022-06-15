@@ -1,4 +1,7 @@
 #Tomcat publish data
-#Wed Jun 15 00:17:14 KST 2022
+#Thu Jun 16 00:32:43 KST 2022
+org.eclipse.jst.jee.server\:web04=C\:\\Users\\scnel\\Documents\\JSP_Servlet_Study\\apache-tomcat-8.5.79\\wtpwebapps\\web04
 org.eclipse.jst.jee.server\:web03=C\:\\Users\\scnel\\Documents\\JSP_Servlet_Study\\apache-tomcat-8.5.79\\wtpwebapps\\web03
-org.eclipse.jst.jee.server\:web02=C\:\\Users\\scnel\\Documents\\JSP_Servlet_Study\\apache-tomcat-8.5.79\\wtpwebapps\\web02
+org.eclipse.jst.jee.server\:web09=C\:\\Users\\scnel\\Documents\\JSP_Servlet_Study\\apache-tomcat-8.5.79\\wtpwebapps\\web09
+org.eclipse.jst.jee.server\:web06=C\:\\Users\\scnel\\Documents\\JSP_Servlet_Study\\apache-tomcat-8.5.79\\wtpwebapps\\web06
+org.eclipse.jst.jee.server\:web09_coffee=C\:\\Users\\scnel\\Documents\\JSP_Servlet_Study\\apache-tomcat-8.5.79\\wtpwebapps\\web09_coffee

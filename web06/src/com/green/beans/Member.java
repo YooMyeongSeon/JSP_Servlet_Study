@@ -1,12 +1,13 @@
 package com.green.beans;
 
-public class Member { //데이터 저장용 클래스 : 자바 빈
+public class Member { //자바빈 : 데이터 저장용 클래스
 	private String name;
 	private String nickname;
 	private String userId;
 	private String userPw;
 	private String email;
 	private String phone;
+	
 	public String getName() {
 		return name;
 	}
@@ -44,4 +45,3 @@ public class Member { //데이터 저장용 클래스 : 자바 빈
 		this.phone = phone;
 	}	
 }
-

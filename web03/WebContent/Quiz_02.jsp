@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Quiz_02</title>
 </head>
 <body>
-	<h1>문제 2</h1>
+	<h1>Quiz_02</h1>
 	<form action="Quiz_02_result.jsp" method="POST">
 		<label><input type="radio" name="dan" value="dan2" checked>2단</label><br>
 		<label><input type="radio" name="dan" value="dan3">3단</label><br>

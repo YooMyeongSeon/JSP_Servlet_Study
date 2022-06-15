@@ -4,16 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>세션</title>
 </head>
 <body>
 	<%
-		if (session.getAttribute("name")==null) {
+		if (session.getAttribute("name") == null) {
 			//로그인을 하지않고 접속한 경우
 			response.sendRedirect("Ex_04_LoginForm.jsp");
 		} else {
 	%>
-		<h2><%=session.getAttribute("name")%>(<%=session.getAttribute("id")%>)님, 환영합니다!</h2>
+		<h1><%=session.getAttribute("name")%>(<%=session.getAttribute("id")%>)님, 환영합니다!</h1>
 		<p>로그인에 성공하였습니다</p>
 		<form action="Ex_04_Logout.jsp" method="POST">
 			<input type="submit" value="로그아웃">

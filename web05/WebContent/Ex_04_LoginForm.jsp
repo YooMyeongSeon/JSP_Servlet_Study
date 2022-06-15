@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>세션</title>
 </head>
 <body>
-	<h3>로그인</h3>
+	<h1>로그인</h1>
 	<form action="Ex_04_TestLogin.jsp" method="POST">
 		아이디 : <input type="text" name="userId"><br>
 		비밀번호 : <input type="password" name="userPw"><br>
