@@ -30,20 +30,12 @@ public class DAO {
 	public Coffee getCoffee(String cname, String size, int ea) {
 		Coffee coffee = new Coffee();
 		String csize;
-
+		
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
 
 		String sql = "select * from coffee where cname=?";
-
-		if (size.equals("ts")) {
-			csize = "톨";
-		} else if (size.equals("gs")) {
-			csize = "그란데";
-		} else {
-			csize = "벤티";
-		}
 		
 		try {
 			conn = getConnection();
@@ -54,14 +46,18 @@ public class DAO {
 
 			if (rs.next()) {
 				coffee.setCname(rs.getString("cname"));
-				coffee.setSize(csize);
+				
 				if (size.equals("ts")) {
-					coffee.setPrice(rs.getInt("tprice"));
+					csize = "톨";
+					coffee.setPrice((rs.getInt("tprice")*ea));
 				} else if (size.equals("gs")) {
-					coffee.setPrice(rs.getInt("gprice"));
+					csize = "그란데";
+					coffee.setPrice((rs.getInt("gprice")*ea));
 				} else {
-					coffee.setPrice(rs.getInt("vprice"));
+					csize = "벤티";
+					coffee.setPrice((rs.getInt("vprice")*ea));
 				}
+				coffee.setSize(csize);
 				coffee.setEa(ea);
 			}
 		} catch(Exception e) {

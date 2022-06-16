@@ -31,10 +31,8 @@ public class Member_DAO { //데이터베이스 연동을 위한 클래스(※싱
 		Connection conn = ds.getConnection();
 		return conn;
 	}
-	
-	//5. 아이디 정보를 통해서 회원 정보를 찾는 메서드 생성
-	
-	//6. 사용자 인증 처리 메서드 생성
+		
+	//5. 사용자 인증 처리 메서드 생성
 	public int userCheck(String userId, String userPw) {
 		int result = -1;
 
@@ -60,7 +58,6 @@ public class Member_DAO { //데이터베이스 연동을 위한 클래스(※싱
 			} else {
 				result = -1; //아이디를 찾을 수 없는 경우
 			}
-			
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -75,7 +72,7 @@ public class Member_DAO { //데이터베이스 연동을 위한 클래스(※싱
 		return result;
 	}
 	
-	//7. 아이디를 가지고 회원 정보를 가져오는 메서드 생성
+	//6. 아이디를 가지고 회원 정보를 가져오는 메서드 생성
 	public Member_Vo getMember(String userId) {
 		Member_Vo mVo = null;
 		
@@ -101,7 +98,6 @@ public class Member_DAO { //데이터베이스 연동을 위한 클래스(※싱
 				mVo.setPhone(rs.getString("phone"));
 				mVo.setAdmin(rs.getInt("admin"));
 			}
-			
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -113,11 +109,10 @@ public class Member_DAO { //데이터베이스 연동을 위한 클래스(※싱
 				e.printStackTrace();
 			}
 		}
-		
 		return mVo;
-		
 	}
-	//8. 회원 가입을 처리할 메서드 생성
+	
+	//7. 회원 가입을 처리할 메서드 생성
 	public int insertMember(Member_Vo mVo) {
 		int result = -1;
 
@@ -138,7 +133,6 @@ public class Member_DAO { //데이터베이스 연동을 위한 클래스(※싱
 			psmt.setInt(6, mVo.getAdmin());
 			
 			result = psmt.executeUpdate();
-			
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -152,7 +146,7 @@ public class Member_DAO { //데이터베이스 연동을 위한 클래스(※싱
 		return result;
 	}
 	
-	//9. 아이디 중복을 체크하는 메서드 생성
+	//8. 아이디 중복을 체크하는 메서드 생성
 	public int confirmId(String userId) {
 		int result = -1;
 
@@ -175,7 +169,6 @@ public class Member_DAO { //데이터베이스 연동을 위한 클래스(※싱
 			} else { //중복된 아이디가 존재하지 않음(사용 가능한 아이디)
 				result = -1;
 			}
-			
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -189,7 +182,8 @@ public class Member_DAO { //데이터베이스 연동을 위한 클래스(※싱
 		}
 		return result;
 	}
-
+	
+	//9. 회원 정보 수정을 처리하는 메서드 생성
 	public int updateMember(Member_Vo mVo) {
 		int result = -1;
 		
@@ -209,7 +203,6 @@ public class Member_DAO { //데이터베이스 연동을 위한 클래스(※싱
 			psmt.setString(5, mVo.getUserId());
 			
 			result = psmt.executeUpdate();
-			
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {

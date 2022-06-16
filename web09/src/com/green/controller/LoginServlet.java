@@ -21,6 +21,7 @@ public class LoginServlet extends HttpServlet {
 		String url = "member/Login.jsp";
 		
 		HttpSession session = request.getSession();
+		
 		if (session.getAttribute("loginUser") != null) {
 			url = "Main.jsp";
 		}
@@ -29,7 +30,6 @@ public class LoginServlet extends HttpServlet {
 	
 	//입력받은 데이터를 처리할 때 사용
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		request.setCharacterEncoding("UTF-8");
 		
 		String url = "member/Login.jsp";

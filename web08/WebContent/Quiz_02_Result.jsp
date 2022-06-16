@@ -19,6 +19,7 @@
 		String uId = "green03";
 		String uPw = "1234";		
 	%>
+	
 	<%
 		request.setCharacterEncoding("UTF-8");
 		String s_name = request.getParameter("name");

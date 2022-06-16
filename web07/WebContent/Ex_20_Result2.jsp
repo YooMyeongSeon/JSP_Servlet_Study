@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>한글 깨짐 방지</title>
 </head>
 <body>
-	<c:redirect url="Ex_12.jsp"/>
+	<h1>POST 한글 깨짐 방지</h1>
+	<% request.setCharacterEncoding("UTF-8"); %>
+	이름 : <%= request.getParameter("name") %>
 </body>
 </html>

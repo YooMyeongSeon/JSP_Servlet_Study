@@ -41,7 +41,6 @@
 			out.println("<p>아이디 : "+userid+"</p>");	
 			out.println("<p>이메일 : "+email+"</p>");
 			out.println("<p>전화번호 : "+phone+"</p>");
-			
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {

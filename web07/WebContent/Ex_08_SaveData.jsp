@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>El의 자바빈 접근</title>
 </head>
 <body>
-	<h3>자바빈에 데이터 저장</h3>
+	<h1>자바빈에 데이터 저장</h1>
 	<jsp:useBean id="member" class="com.green.beans.Member" scope="request">
 		<jsp:setProperty property="userId" name="member" value="hong"/>
 		<jsp:setProperty property="userPw" name="member" value="1234"/>

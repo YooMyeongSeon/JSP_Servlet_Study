@@ -14,7 +14,7 @@
 		Connection conn = null;
 		Statement stmt = null;
 		
-		String url = "jdbc:oracle:thin:@oracle.interstander.com:41521:XE"; //프로토콜 정보 : jdbc:oracle:thin:@
+		String url = "jdbc:oracle:thin:@oracle.interstander.com:41521:XE";
 		String uId = "green03";
 		String uPw = "1234";
 		
@@ -29,21 +29,14 @@
 	
 	<%
 		try {
-			//1. 드라이버 로드
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-		
-			//2. 데이터베이스 연결 객체 생성
 			conn = DriverManager.getConnection(url,uId,uPw);
-			
-			//3. 쿼리문을 실행할 객체 생성
 			stmt = conn.createStatement();
 			
-			//4. 쿼리문 실행
 			String sql = "INSERT INTO member "+ 
    						 " VALUES ('"+name+"','"+userid+"','"+userpw+"','"+email+"','"+phone+"',"+admin+")";
-			int num = stmt.executeUpdate(sql);
+			int num = stmt.executeUpdate(sql); //int 형태로 횟수가 출력된다.
 			System.out.println("바뀐 행의 갯수 : " + num);
-			
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {

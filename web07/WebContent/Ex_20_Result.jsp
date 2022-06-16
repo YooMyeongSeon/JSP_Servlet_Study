@@ -4,11 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>한글 깨짐 방지</title>
 </head>
 <body>
-	<h3>POST 한글 깨짐 방지</h3>
-	<% request.setCharacterEncoding("UTF-8"); %>
+	<h1>POST 한글 깨짐</h1>
 	이름 : <%=request.getParameter("name")%>
 </body>
 </html>

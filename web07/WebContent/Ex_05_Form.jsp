@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>El 표기법</title>
 </head>
 <body>
 	<h1>문자열 비교</h1>

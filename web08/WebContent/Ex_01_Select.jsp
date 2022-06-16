@@ -22,6 +22,7 @@
 		String uId = "green03";
 		String uPw = "1234";
 	%>
+	
 	<table border="1">
 		<tr>
 			<th>이름</th>
@@ -33,12 +34,11 @@
 		</tr>
 	<%
 		try {
-			//데이터베이스에 연결
 			//1. 드라이버 로드
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
 			//2. 데이터베이스에 연결
-			conn = DriverManager.getConnection(url,uId,uPw);
+			conn = DriverManager.getConnection(url, uId, uPw);
 			
 			//3. 쿼리문을 실행할 객체 생성
 			stmt = conn.createStatement();
@@ -67,7 +67,6 @@
 				out.println("<td>"+admin+"</td>");
 				out.println("</tr>");
 			}
-		
 		} catch(Exception e) {
 			e.printStackTrace();	
 		} finally {

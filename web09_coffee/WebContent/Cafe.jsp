@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="Oder.Coffee" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="Oder.Coffee"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
 	<h1>카페 주문 프로그램</h1>
 	<form action="Oder" method="POST">
 		<select name="coffee">
-			<option value="돌체 라떼">돌체 라떼</option>
+			<option value="돌체 라떼">돌체 라떼</option>	
 			<option value="화이트 초콜릿 모카">화이트 초콜릿 모카</option>
 			<option value="카페 모카">카페 모카</option>
 			<option value="카페 라떼">카페 라떼</option>
@@ -38,12 +39,15 @@
 			for (int i=0; i<coffeeList.size(); i++) {
 				out.print(coffeeList.get(i).getCname() + " / ");
 				out.print(coffeeList.get(i).getSize() + " / ");
-				out.print(coffeeList.get(i).getPrice() + " / "); 
+				out.print(coffeeList.get(i).getPrice() + "원 / "); 
 				out.print(coffeeList.get(i).getEa() + "잔<br>");
 				add = add + coffeeList.get(i).getPrice();
 			}
 			out.println("<p>총합 : " + add + "원</p>");
 		%>
+		<form action="Reset" method="POST">
+			<input type="submit" value="리셋">
+		</form>
 	</c:if>
 </body>
 </html>

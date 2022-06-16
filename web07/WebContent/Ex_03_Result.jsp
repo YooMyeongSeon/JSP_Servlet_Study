@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>El 표기법</title>
 </head>
 <body>
 	<h1>입력된 값 출력</h1>
@@ -13,9 +13,8 @@
 	비밀번호 : <%= request.getParameter("userPw") %>
 	<hr>
 	
-	<%-- 2. El표기를 활용한 방법 --%>
+	<%-- 2. El표기법을 활용한 방법 --%>
 	아이디 : ${ param.userId }<br>
 	비밀번호 : ${ param["userPw"] }
-	<hr>
 </body>
 </html>

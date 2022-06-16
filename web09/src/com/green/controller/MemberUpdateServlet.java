@@ -48,5 +48,4 @@ public class MemberUpdateServlet extends HttpServlet {
 		
 		response.sendRedirect("LS");
 	}
-
 }

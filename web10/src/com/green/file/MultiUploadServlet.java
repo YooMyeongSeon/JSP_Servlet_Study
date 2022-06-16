@@ -26,7 +26,7 @@ public class MultiUploadServlet extends HttpServlet {
 		serviceTest(request, response);
 	}
 
-	private void serviceTest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void serviceTest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { //get방식, post방식을 모두 가져와 처리
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
@@ -35,7 +35,6 @@ public class MultiUploadServlet extends HttpServlet {
 		String encType = "UTF-8";
 		
 		try {
-			//인스턴스가 생성됨과 동시에 업로드가 완료
 			MultipartRequest multi = new MultipartRequest(request, savePath, uploadFileSize, encType, new DefaultFileRenamePolicy());
 			
 			if (multi == null) {

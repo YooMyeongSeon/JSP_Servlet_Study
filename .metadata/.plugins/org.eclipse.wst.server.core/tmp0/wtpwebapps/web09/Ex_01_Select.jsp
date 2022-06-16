@@ -19,6 +19,7 @@
 		Statement stmt = null;
 		ResultSet rs = null;
 	%>
+	
 	<table border="1">
 		<tr>
 			<th>이름</th>
@@ -28,6 +29,7 @@
 			<th>전화번호</th>
 			<th>권한(1:관리자, 0:일반회원)</th>
 		</tr>
+	
 	<%
 		try {
 			//1. 톰캣이 만든 커넥션을 사용
@@ -59,7 +61,6 @@
 				out.println("<td>"+admin+"</td>");
 				out.println("</tr>");
 			}
-		
 		} catch(Exception e) {
 			e.printStackTrace();	
 		} finally {

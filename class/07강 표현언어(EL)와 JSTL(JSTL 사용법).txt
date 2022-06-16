@@ -1,18 +1,14 @@
-USING JSTL TAGS FROM A JSP
+CORE LIBRARY
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-The JSTL tag library can be imported into your pages with the following directives:
+XML LIBRARY
+<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
 
-  CORE LIBRARY
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+FMT LIBRARY 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-  XML LIBRARY
-    <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
+SQL LIBRARY
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
-  FMT LIBRARY 
-    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-  SQL LIBRARY
-    <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
-
-  FUNCTIONS LIBRARY
-    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+FUNCTIONS LIBRARY
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
