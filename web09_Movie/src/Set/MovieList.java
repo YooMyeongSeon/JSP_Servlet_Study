@@ -23,8 +23,4 @@ public class MovieList extends HttpServlet {
 		request.setAttribute("movieList", movieList);
 		request.getRequestDispatcher("MovieList.jsp").forward(request, response);
 	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	}
 }

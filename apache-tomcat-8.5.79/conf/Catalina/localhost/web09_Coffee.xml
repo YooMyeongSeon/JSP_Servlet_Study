@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context docBase="C:\Users\scnel\Documents\JSP_Servlet_Study\apache-tomcat-8.5.79\wtpwebapps\web09_Coffee" path="/web09_Coffee" reloadable="true" source="org.eclipse.jst.jee.server:web09_Coffee">
+      	<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle.interstander.com:41521:XE" username="green03"/>
+      </Context>
