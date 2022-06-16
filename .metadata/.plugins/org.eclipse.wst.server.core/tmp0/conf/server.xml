@@ -154,7 +154,9 @@
 
       
       <Context docBase="C:\Users\GREEN\Documents\JSP_Servlet_Study\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/>
-      </Host>
+      
+      
+	</Host>
     </Engine>
   </Service>
 </Server>

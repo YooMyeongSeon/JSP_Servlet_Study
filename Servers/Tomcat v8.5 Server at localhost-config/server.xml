@@ -156,7 +156,13 @@
       <Context docBase="web09" path="/web09" reloadable="true" source="org.eclipse.jst.jee.server:web09">
       	<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle.interstander.com:41521:XE" username="green03"/>
       </Context>
-      <Context docBase="web09_Coffee" path="/web09_Coffee" reloadable="true" source="org.eclipse.jst.jee.server:web09_Coffee"/></Host>
+      <Context docBase="web09_Coffee" path="/web09_Coffee" reloadable="true" source="org.eclipse.jst.jee.server:web09_Coffee">
+      	<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle.interstander.com:41521:XE" username="green03"/>
+      </Context>
+      <Context docBase="web07" path="/web07" reloadable="true" source="org.eclipse.jst.jee.server:web07"/><Context docBase="web09_Movie" path="/web09_Movie" reloadable="true" source="org.eclipse.jst.jee.server:web09_Movie">
+      	<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle.interstander.com:41521:XE" username="green03"/>
+      </Context>
+	</Host>
     </Engine>
   </Service>
 </Server>
