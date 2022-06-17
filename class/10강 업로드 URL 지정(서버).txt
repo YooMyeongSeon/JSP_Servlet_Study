@@ -1,0 +1,1 @@
+<Context docBase="c:\upload" path="/images" reloadable="true"/>
