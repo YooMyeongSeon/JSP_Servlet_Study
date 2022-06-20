@@ -11,8 +11,11 @@
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="com.green.VO.Member_Vo"/>
 <fullyQualifiedTypeName name="com.green.DAO.Member_DAO"/>
-<fullyQualifiedTypeName name="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
+<fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"/>
+<fullyQualifiedTypeName name="com.green.product.dao.Product_DAO"/>
+<fullyQualifiedTypeName name="java.io.File"/>
 </qualifiedTypeNameHistroy>

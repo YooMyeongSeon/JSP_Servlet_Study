@@ -161,6 +161,9 @@
 		<Context docBase="web10_Product" path="/web10_Product" reloadable="true" source="org.eclipse.jst.jee.server:web10_Product">
 			<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle.interstander.com:41521:XE" username="green03"/>
 		</Context>
+		<Context docBase="web11" path="/web11" reloadable="true" source="org.eclipse.jst.jee.server:web11">
+			<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle.interstander.com:41521:XE" username="green03"/>
+		</Context>
 		</Host>
     </Engine>
   </Service>
