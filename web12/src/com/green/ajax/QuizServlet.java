@@ -17,15 +17,10 @@ import com.google.gson.JsonParser;
 public class QuizServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
 		String getInfo = request.getParameter("Info");
-		String date = "2022.06.21";
-		
+				
 		JsonParser parser = new JsonParser();
 		JsonElement data = parser.parse(getInfo);
 		
@@ -34,7 +29,7 @@ public class QuizServlet extends HttpServlet {
 		Info.setNum(Integer.parseInt(data.getAsJsonObject().get("num").getAsString()));
 		Info.setTitle(data.getAsJsonObject().get("title").getAsString());
 		Info.setContent(data.getAsJsonObject().get("content").getAsString());
-		Info.setDate(date);
+		Info.setDate(data.getAsJsonObject().get("date").getAsString());
 		
 		Gson gson = new Gson();
 		
