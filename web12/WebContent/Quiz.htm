@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SNS</title>
+<script src="./jQuery/jquery-3.6.0.min.js" type="text/javascript"></script>
+<style>
+	table, th, td {
+		border : 1px solid;
+		border-collapse: collapse;
+		padding: 10px;
+	}
+</style>
+</head>
+<body>
+	<h1>SNS</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>글 제목</th>
+				<th>글 내용</th>
+				<th>날짜</th>
+				<th>삭제</th>
+			</tr>
+		</thead>
+		<tbody id="add">
+		
+		</tbody>
+	</table>
+	<hr>
+	<form>
+		<label for="title">글 제목 : </label>
+		<input type="text" name="title" id="title"><br>
+		<label for="content">글 내용 : </label>
+		<textarea rows="10" cols="40" name="content" id="content"></textarea><br>
+		<input type="hidden" value="1" name="num" id="num">
+		<input type="button" value="등록" onclick="add()">
+		<input type="button" value="수정" onclick="upd()">
+	</form>
+	<script type="text/javascript">
+		function add() {
+			let num = $('#num').val();
+			let title = $('#title').val();
+			let content = $('#content').val();
+			
+			let Info = {"num" : num, "title" : title, "content" : content};
+			
+			$.ajax({
+				type : "post",
+				async : true,
+				url : "QuizServlet",
+				data : {"Info" : JSON.stringify(Info)},
+				datetype : "text",
+				success : function(data) {
+					let Info = JSON.parse(data);
+					
+					var html = "";
+					
+					html += "<tr>";
+					html += "<td>" + Info.num + "</td>";
+					html += "<td><a href=\"javascript:view();\">" + Info.title + "</a></td>";
+					html += "<td>" + Info.content + "</td>";
+					html += "<td>" + Info.date + "</td>";
+					html += "<td><a href=\"javascript:del();\">삭제</a></td>";
+					html += "</tr>";
+								
+					$("#add").append(html);
+				}
+			});
+		}
+	
+	</script>
+</body>
+</html>

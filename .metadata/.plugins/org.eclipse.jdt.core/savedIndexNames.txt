@@ -10,7 +10,6 @@ INDEX VERSION 1.131+C:\Users\GREEN\Documents\JSP_Servlet_Study\.metadata\.plugin
 831767522.index
 20607857.index
 1184166772.index
-503012100.index
 3436602661.index
 1213168454.index
 2411057964.index
