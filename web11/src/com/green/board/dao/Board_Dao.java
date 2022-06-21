@@ -35,7 +35,7 @@ public class Board_Dao {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			
-			while(rs.next()) {
+			while (rs.next()) {
 				Board_Vo bVo = new Board_Vo();
 				
 				bVo.setNum(rs.getInt("num"));
@@ -49,7 +49,7 @@ public class Board_Dao {
 				
 				list.add(bVo);
 			}
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(conn, stmt, rs);
@@ -74,7 +74,7 @@ public class Board_Dao {
 			psmt.setString(5, bVo.getContent());
 			
 			psmt.executeUpdate();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(conn, psmt);
@@ -108,7 +108,7 @@ public class Board_Dao {
 				bVo.setReadCount(rs.getInt("readCount"));
 				bVo.setWriteDate(rs.getTimestamp("writeDate"));
 			}
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(conn, psmt, rs);
@@ -128,7 +128,7 @@ public class Board_Dao {
 			psmt.setInt(1, num);
 			
 			psmt.executeUpdate();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(conn, psmt);
@@ -157,7 +157,7 @@ public class Board_Dao {
 			psmt.setInt(1, num);
 			
 			psmt.executeUpdate();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(conn, psmt);
@@ -182,10 +182,82 @@ public class Board_Dao {
 			psmt.setInt(6, bVo.getNum());
 			
 			psmt.executeUpdate();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(conn, psmt);
 		}
 	}
+	
+	public List<Board_Vo> selectTargetBoard(int section, int page) {
+		List<Board_Vo> list = new ArrayList<>();
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from(select rownum as nick, num, name, email, pw, title, content, readcount, writedate from(select * from board order by num desc)) " +
+					 "where nick BETWEEN (? - 1) * 100 + (? - 1) * 10 + 1 and (? - 1) * 100 + ? * 10";
+	
+		try {
+			conn = DBManager.getConnection();
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setInt(1, section);
+			psmt.setInt(2, page);
+			psmt.setInt(3, section);
+			psmt.setInt(4, page);
+			
+			rs = psmt.executeQuery();
+			
+			while (rs.next()) {
+				Board_Vo bVo = new Board_Vo();
+				
+				bVo.setNum(rs.getInt("num"));
+				bVo.setPw(rs.getString("pw"));
+				bVo.setName(rs.getString("name"));
+				bVo.setEmail(rs.getString("email"));
+				bVo.setTitle(rs.getString("title"));
+				bVo.setContent(rs.getString("content"));
+				bVo.setReadCount(rs.getInt("readCount"));
+				bVo.setWriteDate(rs.getTimestamp("writeDate"));
+				
+				list.add(bVo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, psmt, rs);
+		}
+		return list;
+	}
+	
+	public int selectAllBoardNumber() {
+		int cntAll = 0;
+		String sql = "select count(*) from board";
+		
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+	
+		try {
+			conn = DBManager.getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			if (rs.next()) {
+				cntAll = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, stmt, rs);
+		}
+		return cntAll;
+	}
+	
+	
+	
+	
+	
 }

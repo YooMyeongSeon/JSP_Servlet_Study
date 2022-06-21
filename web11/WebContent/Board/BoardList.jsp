@@ -35,6 +35,37 @@
 				</tr>
 			</c:forEach>
 		</table>
-	</div>
+		<div class="cls2">
+			<c:if test="${totalCnt != null}">
+				<c:choose>
+					<c:when test="${totalCnt > 100}">
+						<c:if test="${(section*100) < totalCnt}">
+							<c:forEach var="page" begin="1" end="10" step="1">
+								<c:if test="${section > 1 && page == 1}"><a href="BS?command=BoardListAction&section=${section-1}&page=10">&lt;&lt;</a></c:if>
+								<a href="BS?command=BoardListAction&section=${section}&page=${page}">${(section-1)*10+page}</a>
+								<c:if test="${page == 10}"><a href="BS?command=BoardListAction&section=${section+1}&page=1">&gt;&gt;</a></c:if>
+							</c:forEach>
+						</c:if>
+						<c:if test="${(section*100) > totalCnt}">
+							<c:forEach var="page" begin="1" end="${((totalCnt+9)-((section-1)*100))/10}" step="1">
+								<c:if test="${section > 1 && page == 1}"><a href="BS?command=BoardListAction&section=${section-1}&page=10">&lt;&lt;</a></c:if>
+								<a href="BS?command=BoardListAction&section=${section}&page=${page}">${(section-1)*10+page}</a>
+							</c:forEach>
+						</c:if>
+					</c:when>
+					<c:when test="${totalCnt == 100}">
+						<c:forEach var="page" begin="1" end="10" step="1">
+							<a href="BS?command=BoardListAction&section=${section}&page=${page}">${page}</a>
+						</c:forEach>
+					</c:when>
+					<c:when test="${totalCnt < 100}">
+						<c:forEach var="page" begin="1" end="${(totalCnt+9)/10}" step="1">
+							<a href="BS?command=BoardListAction&section=${section}&page=${page}">${page}</a>
+						</c:forEach>
+					</c:when>		
+				</c:choose>
+			</c:if>
+		</div>
+	</div> 
 </body>
 </html>
