@@ -12,7 +12,6 @@
 	<div>
 		<h1>교과목 관리 사이트</h1>
 		<h3>총 <span style="font-size: 20pt; color:#4371c6">${courseList.size()}</span>개의 교과목이 있습니다.</h3>
-		<button>강사 보기</button>
 		<table>
 			<tr>
 				<th>과목 코드</th>
@@ -24,14 +23,15 @@
 			<c:forEach items="${courseList}" var="course">
 				<tr>
 					<td>${course.id}</td>
-					<td><a href="#">${course.name}</a></td>
+					<td><a href="CS?command=courseViewAction&id=${course.id}">${course.name}</a></td>
 					<td>${course.credit}</td>
 					<td>${course.lecturerName}</td>
 					<td>${course.week}</td>
 				</tr>
 			</c:forEach>
 		</table>
-		<button type="button" onclick="location.href='CS?command=courseAddFormAction'">교과목 등록</button>
+		<span id="lecturer"><button onclick="location.href='CS?command=courseAddFormAction'">강사 보기</button></span>
+		<span id="add"><button onclick="location.href='CS?command=courseAddFormAction'">교과목 등록</button></span>
 		<p>Copyright(c) 2022 그린 아카데미 All right Reserved</p>
 	</div>
 </body>

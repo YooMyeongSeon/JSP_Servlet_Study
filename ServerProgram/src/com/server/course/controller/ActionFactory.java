@@ -4,6 +4,7 @@ import com.server.course.controller.action.Action;
 import com.server.course.controller.action.CourseAddAction;
 import com.server.course.controller.action.CourseAddFormAction;
 import com.server.course.controller.action.CourseListAction;
+import com.server.course.controller.action.CourseViewAction;
 
 public class ActionFactory {
 	private ActionFactory() {}
@@ -23,6 +24,8 @@ public class ActionFactory {
 			action = new CourseAddFormAction();
 		} else if (command.equals("courseAddAction")) {
 			action = new CourseAddAction();
+		} else if (command.equals("courseViewAction")) {
+			action = new CourseViewAction();
 		}
 		
 		return action;

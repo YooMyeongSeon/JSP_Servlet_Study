@@ -11,6 +11,11 @@
 	th {
 		width: 200px;
 	}
+	.input {
+		width: 950px;
+		outline: none;
+		border: none;
+	} 
 </style>
 </head>
 <body>
@@ -22,11 +27,11 @@
 			<table>
 				<tr>
 					<th>과목 코드</th>
-					<td><input type="number" name="id" required></td>
+					<td><input class="input" type="number" name="id" required></td>
 				</tr>
 				<tr>
 					<th>과목 명</th>
-					<td><input type="text" name="name" required></td>
+					<td><input class="input" type="text" name="name" required></td>
 				</tr>
 				<tr>
 					<th>담당 강사</th>
@@ -40,7 +45,7 @@
 				</tr>
 				<tr>
 					<th>학점</th>
-					<td><input type="number" name="credit" required></td>
+					<td><input class="input" type="number" name="credit" required></td>
 				</tr>
 				<tr>
 					<th>요일</th>
@@ -54,15 +59,15 @@
 				</tr>
 				<tr>
 					<th>시작 시간</th>
-					<td><input type="number" name="start_hour" required></td>
+					<td><input class="input" type="number" name="start_hour" required></td>
 				</tr>
 				<tr>
 					<th>종료 시간</th>
-					<td><input type="number" name="end_hour" required></td>
+					<td><input class="input" type="number" name="end_hour" required></td>
 				</tr>
 			</table>
 			<input type="submit" value="등록">
-			<button type="button" onclick="location.href='CS?command=courseListAction'">취소</button>
+			<button onclick="location.href='CS?command=courseListAction'">취소</button>
 		</form>
 		<p>Copyright(c) 2022 그린 아카데미 All right Reserved</p>
 	</div>

@@ -6,8 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.server.course.dao.CourseDao;
-import com.server.course.vo.CourseVo;
+import com.server.vo.CourseVo;
+import com.serverdao.CourseDao;
 
 public class CourseAddAction implements Action {
 
