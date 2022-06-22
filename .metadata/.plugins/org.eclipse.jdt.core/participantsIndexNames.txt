@@ -1,5 +1,0 @@
-INDEX VERSION 1.131
-C:\Users\GREEN\Documents\JSP_Servlet_Study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1987149809.index
-\ServerProgram\src
-C:\Users\GREEN\Documents\JSP_Servlet_Study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1802645463.index
-\ServerProgram\src

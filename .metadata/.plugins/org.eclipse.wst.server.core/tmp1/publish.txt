@@ -1,5 +1,0 @@
-#Tomcat publish data
-#Tue Jun 21 22:54:14 KST 2022
-org.eclipse.jst.jee.server\:web12=C\:\\Users\\scnel\\Documents\\JSP_Servlet_Study\\apache-tomcat-8.5.79\\wtpwebapps\\web12
-org.eclipse.jst.jee.server\:web09_Movie=C\:\\Users\\scnel\\Documents\\JSP_Servlet_Study\\apache-tomcat-8.5.79\\wtpwebapps\\web09_Movie
-org.eclipse.jst.jee.server\:web09_coffee=C\:\\Users\\scnel\\Documents\\JSP_Servlet_Study\\apache-tomcat-8.5.79\\wtpwebapps\\web09_coffee
