@@ -25,4 +25,6 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.green.board.dao.Board_Dao"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.server.course.controller.action.Action"/>
+<fullyQualifiedTypeName name="com.server.course.dao.CourseDao"/>
 </qualifiedTypeNameHistroy>
