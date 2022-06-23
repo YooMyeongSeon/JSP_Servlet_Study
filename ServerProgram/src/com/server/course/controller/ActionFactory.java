@@ -1,9 +1,16 @@
 package com.server.course.controller;
 
+import com.server.Lecturer.controller.action.LecturerAddAction;
+import com.server.Lecturer.controller.action.LecturerAddFormAction;
+import com.server.Lecturer.controller.action.LecturerDeleteAction;
+import com.server.Lecturer.controller.action.LecturerListAction;
 import com.server.course.controller.action.Action;
 import com.server.course.controller.action.CourseAddAction;
 import com.server.course.controller.action.CourseAddFormAction;
+import com.server.course.controller.action.CourseDeleteAction;
 import com.server.course.controller.action.CourseListAction;
+import com.server.course.controller.action.CourseUpdateAction;
+import com.server.course.controller.action.CourseUpdateFormAction;
 import com.server.course.controller.action.CourseViewAction;
 
 public class ActionFactory {
@@ -26,6 +33,20 @@ public class ActionFactory {
 			action = new CourseAddAction();
 		} else if (command.equals("courseViewAction")) {
 			action = new CourseViewAction();
+		} else if (command.equals("courseUpdateFormAction")) {
+			action = new CourseUpdateFormAction();
+		} else if (command.equals("courseUpdateAction")) {
+			action = new CourseUpdateAction();
+		} else if (command.equals("courseDeleteAction")) {
+			action = new CourseDeleteAction();
+		} else if (command.equals("lecturerListAction")) {
+			action = new LecturerListAction();
+		} else if (command.equals("lecturerAddFormAction")) {
+			action = new LecturerAddFormAction();
+		} else if (command.equals("lecturerAddAction")) {
+			action = new LecturerAddAction();
+		} else if (command.equals("lecturerDeleteAction")) {
+			action = new LecturerDeleteAction();
 		}
 		
 		return action;

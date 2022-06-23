@@ -9,6 +9,7 @@ public class CourseVo {
 	private int start_hour;
 	private int end_hour;
 	private String lecturerName;
+	private String oldId;
 	
 	public String getId() {
 		return id;
@@ -73,5 +74,11 @@ public class CourseVo {
 	}
 	public void setLecturerName(String lecturerName) {
 		this.lecturerName = lecturerName;
+	}
+	public String getOldId() {
+		return oldId;
+	}
+	public void setOldId(String oldId) {
+		this.oldId = oldId;
 	}
 }

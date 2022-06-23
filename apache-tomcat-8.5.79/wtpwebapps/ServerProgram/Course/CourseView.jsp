@@ -10,8 +10,17 @@
 <title>교과목 관리 사이트</title>
 <link type="text/css" rel="stylesheet" href="CSS/Style.css">
 <style>
+	table {
+		margin: 0 auto;
+		width: 600px;
+		margin-bottom: 10px;
+	}
 	th {
 		width: 200px;
+	}
+	td {
+		width: 400px;
+		text-align: left;
 	}
 </style>
 </head>
@@ -34,10 +43,10 @@
 			</tr>
 			<tr>
 				<th>학점</th>
-				<td>${cVo.credit}</td>
+				<td>${cVo.credit} 학점</td>
 			</tr>
 			<tr>
-				<th>요일</th>
+				<th>강의 요일</th>
 				<td>${cVo.week}</td>
 			</tr>
 			<tr>
@@ -67,8 +76,8 @@
 				</td>
 			</tr>
 		</table>
-		<button onclick="location.href='CS?command='">수정</button>
-		<button onclick="location.href='CS?command='">삭제</button>
+		<button onclick="location.href='CS?command=courseUpdateFormAction&id=${cVo.id}'">수정</button>
+		<button onclick="location.href='CS?command=courseDeleteAction&id=${cVo.id}'">삭제</button>
 		<button onclick="location.href='CS?command=courseListAction'">목록</button>
 		<p>Copyright(c) 2022 그린 아카데미 All right Reserved</p>
 	</div>

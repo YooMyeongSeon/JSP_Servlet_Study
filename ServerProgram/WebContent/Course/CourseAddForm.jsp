@@ -8,14 +8,28 @@
 <title>교과목 관리 사이트</title>
 <link type="text/css" rel="stylesheet" href="CSS/Style.css">
 <style>
+	table {
+		margin: 0 auto;
+		width: 600px;
+		margin-bottom: 10px;
+	}
 	th {
 		width: 200px;
 	}
+	td {
+		width: 400px;
+	}
 	.input {
-		width: 950px;
+		width: 380px;
 		outline: none;
 		border: none;
-	} 
+	}
+	select {
+		float: left;
+	}
+	#week {
+		float: left;
+	}
 </style>
 </head>
 <body>
@@ -27,7 +41,7 @@
 			<table>
 				<tr>
 					<th>과목 코드</th>
-					<td><input class="input" type="number" name="id" required></td>
+					<td><input class="input" type="number" name="id" placeholder="5자리 숫자로 입력" required></td>
 				</tr>
 				<tr>
 					<th>과목 명</th>
@@ -45,25 +59,28 @@
 				</tr>
 				<tr>
 					<th>학점</th>
-					<td><input class="input" type="number" name="credit" required></td>
+					<td><input class="input" type="number" name="credit" placeholder="1자리 숫자로 입력"required></td>
 				</tr>
 				<tr>
-					<th>요일</th>
+					<th>강의 요일</th>
 					<td>
-						월<input type="radio" name="week" value="1" checked>
-						화<input type="radio" name="week" value="2">
-						수<input type="radio" name="week" value="3">
-						목<input type="radio" name="week" value="4">
-						금<input type="radio" name="week" value="5">
+						<span id="week">
+							<input type="radio" name="week" value="1" checked>월　
+							<input type="radio" name="week" value="2">화　
+							<input type="radio" name="week" value="3">수　
+							<input type="radio" name="week" value="4">목　
+							<input type="radio" name="week" value="5">금　
+							<input type="radio" name="week" value="6">토
+						</span>
 					</td>
 				</tr>
 				<tr>
 					<th>시작 시간</th>
-					<td><input class="input" type="number" name="start_hour" required></td>
+					<td><input class="input" type="number" name="start_hour" placeholder="4자리 숫자로 입력 ex)09시 00분 : 0900" required></td>
 				</tr>
 				<tr>
 					<th>종료 시간</th>
-					<td><input class="input" type="number" name="end_hour" required></td>
+					<td><input class="input" type="number" name="end_hour" placeholder="4자리 숫자로 입력" required></td>
 				</tr>
 			</table>
 			<input type="submit" value="등록">

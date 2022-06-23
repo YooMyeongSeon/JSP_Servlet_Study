@@ -135,7 +135,6 @@ public class CourseDao {
 		
 		String sql = "select id, c.name cname, credit, lecturer, week, start_hour, end_hour, l.name lname from course_tbl c inner join lecturer_tbl l on c.lecturer = l.idx where id=?";
 		
-		
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
@@ -166,9 +165,136 @@ public class CourseDao {
 		return cVo;
 	}
 
+	public void updateCourse(CourseVo cVo) {
+		String sql = "update course_tbl set id=?, name=?, credit=?, lecturer=?, week=?, start_hour=?, end_hour=? where id=?";
+
+		Connection conn = null;
+		PreparedStatement psmt = null;
+
+		try {
+			conn = DBManager.getConnection();
+			psmt = conn.prepareStatement(sql);
+			
+			int weeknum = 0;
+			
+			if (cVo.getWeek().equals("월요일")) {
+				weeknum = 1;
+			} else if (cVo.getWeek().equals("화요일")) {
+				weeknum = 2;
+			} else if (cVo.getWeek().equals("수요일")) {
+				weeknum = 3;
+			} else if (cVo.getWeek().equals("목요일")) {
+				weeknum = 4;
+			} else if (cVo.getWeek().equals("금요일")) {
+				weeknum = 5;
+			} else {
+				weeknum = 6;
+			}
+			
+			psmt.setString(1, cVo.getId());
+			psmt.setString(2, cVo.getName());
+			psmt.setInt(3, cVo.getCredit());
+			psmt.setInt(4, cVo.getLecturer());
+			psmt.setInt(5, weeknum);
+			psmt.setInt(6, cVo.getStart_hour());
+			psmt.setInt(7, cVo.getEnd_hour());
+			psmt.setString(8, cVo.getOldId());
+			
+			psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, psmt);
+		}
+	}
+
+	public void courseDelete(String id) {
+		String sql = "delete from course_tbl where id=?";
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			
+			psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, psmt);
+		}
+	}
+
+	public int selectSeq() {
+		int seq = 0;
+		
+		String sql = "SELECT LAST_NUMBER seq FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'LECTURER_SEQ'";
+		
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			if (rs.next()) {
+				seq = rs.getInt("seq");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, stmt, rs);
+		}
+		return seq;
+	}
+
+	public void addLecturer(LecturerVo lVo) {
+		String sql = "insert into lecturer_tbl values(LECTURER_SEQ.nextval, ?, ?, ?)";
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, lVo.getName());
+			psmt.setString(2, lVo.getMajor());
+			psmt.setString(3, lVo.getField());
+			
+			psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, psmt);
+		}
+	}
+
+	public void lecturerDelete(int idx) {
+		String sql = "delete from lecturer_tbl where idx=?";
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, idx);
+			
+			psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, psmt);
+		}
+	}
 	
 	
 	
 	
-	
+		
 }

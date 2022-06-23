@@ -7,6 +7,14 @@
 <meta charset="UTF-8">
 <title>교과목 관리 사이트</title>
 <link type="text/css" rel="stylesheet" href="CSS/Style.css">
+<style>
+	#add {
+		float: right;
+	}
+	#lecturer {
+		float: left;
+	}
+</style>
 </head>
 <body>
 	<div>
@@ -18,19 +26,19 @@
 				<th>과목 명</th>
 				<th>학점</th>
 				<th>담당 강사</th>
-				<th>요일</th>
+				<th>강의 요일</th>
 			</tr>
 			<c:forEach items="${courseList}" var="course">
 				<tr>
 					<td>${course.id}</td>
 					<td><a href="CS?command=courseViewAction&id=${course.id}">${course.name}</a></td>
-					<td>${course.credit}</td>
+					<td>${course.credit} 학점</td>
 					<td>${course.lecturerName}</td>
 					<td>${course.week}</td>
 				</tr>
 			</c:forEach>
 		</table>
-		<span id="lecturer"><button onclick="location.href='CS?command=courseAddFormAction'">강사 보기</button></span>
+		<span id="lecturer"><button onclick="location.href='CS?command=lecturerListAction'">강사 보기</button></span>
 		<span id="add"><button onclick="location.href='CS?command=courseAddFormAction'">교과목 등록</button></span>
 		<p>Copyright(c) 2022 그린 아카데미 All right Reserved</p>
 	</div>
