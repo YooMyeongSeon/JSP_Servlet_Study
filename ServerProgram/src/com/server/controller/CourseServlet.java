@@ -1,4 +1,4 @@
-package com.server.course.controller;
+package com.server.controller;
 
 import java.io.IOException;
 

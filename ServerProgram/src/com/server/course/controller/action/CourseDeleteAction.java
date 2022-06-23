@@ -16,7 +16,7 @@ public class CourseDeleteAction implements Action {
 		String id = request.getParameter("id");
 		
 		CourseDao dao = CourseDao.getInstance();
-		dao.courseDelete(id);
+		dao.deleteCourse(id);
 		
 		response.sendRedirect("CS?command=courseListAction");
 	}

@@ -7,26 +7,34 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>교과목 관리 사이트</title>
+<title>서버 프로그램 구현</title>
 <link type="text/css" rel="stylesheet" href="CSS/Style.css">
 <style>
-	table {
-		margin: 0 auto;
+	div {
 		width: 600px;
-		margin-bottom: 10px;
+	}
+	table {
+		margin: 20px auto;
+		width: 600px;
 	}
 	th {
 		width: 200px;
 	}
 	td {
 		width: 400px;
+		padding: 10px 20px;
 		text-align: left;
+	}
+	button {
+		width: 80px;
+		height: 25px;
+		margin: 0px 10px;
 	}
 </style>
 </head>
 <body>
+	<jsp:include page="/Header.html"/>
 	<div>
-		<h1>교과목 관리 사이트</h1>
 		<h3>교과목 상세 보기</h3>
 		<table>
 			<tr>
@@ -34,7 +42,7 @@
 				<td>${cVo.id}</td>
 			</tr>
 			<tr>
-				<th>과목 명</th>
+				<th>과목 이름</th>
 				<td>${cVo.name}</td>
 			</tr>
 			<tr>
@@ -77,9 +85,18 @@
 			</tr>
 		</table>
 		<button onclick="location.href='CS?command=courseUpdateFormAction&id=${cVo.id}'">수정</button>
-		<button onclick="location.href='CS?command=courseDeleteAction&id=${cVo.id}'">삭제</button>
+		<button onclick="check()">삭제</button>
 		<button onclick="location.href='CS?command=courseListAction'">목록</button>
-		<p>Copyright(c) 2022 그린 아카데미 All right Reserved</p>
 	</div>
+	<jsp:include page="/Footer.html"/>
+	<script type="text/javascript">
+		function check() {
+			if (!confirm("교과목을 삭제하시겠습니까?")) {
+				return false;
+		    } else {
+	   			location.href="CS?command=courseDeleteAction&id=${cVo.id}";
+		    }
+		}
+	</script>
 </body>
 </html>

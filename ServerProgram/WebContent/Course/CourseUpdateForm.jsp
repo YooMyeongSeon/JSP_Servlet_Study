@@ -5,36 +5,53 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>교과목 관리 사이트</title>
+<title>서버 프로그램 구현</title>
 <link type="text/css" rel="stylesheet" href="CSS/Style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style>
-	table {
-		margin: 0 auto;
+	div {
 		width: 600px;
-		margin-bottom: 10px;
+	}
+	table {
+		margin: 20px auto;
+		width: 600px;
 	}
 	th {
 		width: 200px;
 	}
 	td {
 		width: 400px;
+		padding: 10px 20px;
+		text-align: left;
 	}
 	.input {
-		width: 380px;
+		width: 360px;
 		outline: none;
 		border: none;
-	}
-	select {
-		float: left;
+		color: #ccc;
 	}
 	#week {
 		float: left;
 	}
+	button, #sbm {
+		width: 80px;
+		height: 25px;
+		margin: 0px 10px;
+		float: left;
+	}
+	#sbm {
+		margin-left: 210px;
+	}
+	select {
+		float: left;
+		width: 80px;
+		height: 25px;
+	}
 </style>
 </head>
 <body>
+	<jsp:include page="/Header.html"/>
 	<div>
-		<h1>교과목 관리 사이트</h1>
 		<h3>교과목 수정</h3>
 		<form action="CS" method="post">
 			<input type="hidden" name="command" value="courseUpdateAction">
@@ -42,11 +59,11 @@
 			<table>
 				<tr>
 					<th>과목 코드</th>
-					<td><input class="input" type="number" name="id" required value="${cVo.id}"></td>
+					<td><input class="input" type="number" id="id" name="id" required value="${cVo.id}"></td>
 				</tr>
 				<tr>
-					<th>과목 명</th>
-					<td><input class="input" type="text" name="name" required value="${cVo.name}"></td>
+					<th>과목 이름</th>
+					<td><input class="input" type="text" id="name" name="name" required value="${cVo.name}"></td>
 				</tr>
 				<tr>
 					<th>담당 강사</th>
@@ -63,7 +80,7 @@
 				</tr>
 				<tr>
 					<th>학점</th>
-					<td><input class="input" type="number" name="credit" value="${cVo.credit}" required></td>
+					<td><input class="input" type="number" id="credit" name="credit" value="${cVo.credit}" required></td>
 				</tr>
 				<tr>
 					<th>강의 요일</th>
@@ -98,17 +115,54 @@
 				</tr>
 				<tr>
 					<th>시작 시간</th>
-					<td><input class="input" type="number" name="start_hour" value="${cVo.start_hour}" required></td>
+					<td>
+						<c:choose>
+							<c:when test="${cVo.start_hour < 1000}">
+								<input class="input" id="sh" type="number" name="start_hour" value="0${cVo.start_hour}" required>
+							</c:when>
+							<c:otherwise>
+								<input class="input" id="sh" type="number" name="start_hour" value="${cVo.start_hour}" required>
+							</c:otherwise>
+						</c:choose>
+					</td>
 				</tr>
 				<tr>
 					<th>종료 시간</th>
-					<td><input class="input" type="number" name="end_hour" value="${cVo.end_hour}" required></td>
+					<td><input class="input" id="eh" type="number" name="end_hour" value="${cVo.end_hour}" required></td>
 				</tr>
 			</table>
-			<input type="submit" value="수정">
-			<button onclick="location.href='CS?command=courseViewAction&id=${cVo.id}'">취소</button>
+			<input type="submit" id="sbm" onclick="check()" value="수정">
 		</form>
-		<p>Copyright(c) 2022 그린 아카데미 All right Reserved</p>
+		<button onclick="location.href='CS?command=courseViewAction&id=${cVo.id}'">취소</button>
 	</div>
+	<jsp:include page="/Footer.html"/>
+	<script type="text/javascript">
+		function check() {
+			if ($('#id').val().length != 5) {
+				alert('과목 코드 형식이 올바르지 않습니다.');
+				$('#id').focus();
+				$('#id').val("");
+				return false;
+			}
+			if ($('#credit').val().length != 1) {
+				alert('학점 형식이 올바르지 않습니다.');
+				$('#credit').focus();
+				$('#credit').val("");
+				return false;
+			}
+			if (($('#sh').val().length != 4) || ($('#sh').val() > 2400)) {
+				alert('시작 시간 형식이 올바르지 않습니다.');
+				$('#sh').focus();
+				$('#sh').val("");
+				return false;
+			}
+			if (($('#eh').val().length != 4) || ($('#eh').val() > 2400)) {
+				alert('종료 시간 형식이 올바르지 않습니다.');
+				$('#eh').focus();
+				$('#eh').val("");
+				return false;
+			}
+		}
+	</script>
 </body>
 </html>

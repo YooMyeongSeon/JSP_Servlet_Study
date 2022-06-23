@@ -1,9 +1,11 @@
-package com.server.course.controller;
+package com.server.controller;
 
 import com.server.Lecturer.controller.action.LecturerAddAction;
 import com.server.Lecturer.controller.action.LecturerAddFormAction;
 import com.server.Lecturer.controller.action.LecturerDeleteAction;
 import com.server.Lecturer.controller.action.LecturerListAction;
+import com.server.Lecturer.controller.action.LecturerUpdateAction;
+import com.server.Lecturer.controller.action.LecturerUpdateFormAction;
 import com.server.course.controller.action.Action;
 import com.server.course.controller.action.CourseAddAction;
 import com.server.course.controller.action.CourseAddFormAction;
@@ -45,6 +47,10 @@ public class ActionFactory {
 			action = new LecturerAddFormAction();
 		} else if (command.equals("lecturerAddAction")) {
 			action = new LecturerAddAction();
+		} else if (command.equals("lecturerUpdateFormAction")) {
+			action = new LecturerUpdateFormAction();
+		} else if (command.equals("lecturerUpdateAction")) {
+			action = new LecturerUpdateAction();
 		} else if (command.equals("lecturerDeleteAction")) {
 			action = new LecturerDeleteAction();
 		}

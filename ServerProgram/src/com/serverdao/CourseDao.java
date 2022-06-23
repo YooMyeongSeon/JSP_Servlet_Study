@@ -56,38 +56,6 @@ public class CourseDao {
 		return list;
 	}
 
-	public List<LecturerVo> selectAllLecturer() {
-		List<LecturerVo> list = new ArrayList<>();
-
-		String sql = "select * from lecturer_tbl";
-		
-		Connection conn = null;
-		Statement stmt = null;
-		ResultSet rs = null;
-		
-		try {
-			conn = DBManager.getConnection();
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			
-			while (rs.next()) {
-				LecturerVo lVo = new LecturerVo();
-				
-				lVo.setIdx(rs.getInt("idx"));
-				lVo.setName(rs.getString("name"));
-				lVo.setMajor(rs.getString("major"));
-				lVo.setField(rs.getString("field"));
-				
-				list.add(lVo);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DBManager.close(conn, stmt, rs);
-		}
-		return list;
-	}
-
 	public void addCourse(CourseVo cVo) {
 		String sql = "insert into course_tbl values(?, ?, ?, ?, ?, ?, ?)";
 	
@@ -208,7 +176,7 @@ public class CourseDao {
 		}
 	}
 
-	public void courseDelete(String id) {
+	public void deleteCourse(String id) {
 		String sql = "delete from course_tbl where id=?";
 		
 		Connection conn = null;
@@ -227,6 +195,38 @@ public class CourseDao {
 		}
 	}
 
+	public List<LecturerVo> selectAllLecturer() {
+		List<LecturerVo> list = new ArrayList<>();
+
+		String sql = "select * from lecturer_tbl";
+		
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			while (rs.next()) {
+				LecturerVo lVo = new LecturerVo();
+				
+				lVo.setIdx(rs.getInt("idx"));
+				lVo.setName(rs.getString("name"));
+				lVo.setMajor(rs.getString("major"));
+				lVo.setField(rs.getString("field"));
+				
+				list.add(lVo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, stmt, rs);
+		}
+		return list;
+	}
+	
 	public int selectSeq() {
 		int seq = 0;
 		
@@ -274,12 +274,65 @@ public class CourseDao {
 		}
 	}
 
-	public void lecturerDelete(int idx) {
+	public LecturerVo selectLecturerByNum(int idx) {
+		LecturerVo lVo = null;
+		
+		String sql = "select * from lecturer_tbl where idx=?";
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, idx);
+			rs = psmt.executeQuery();
+			
+			if (rs.next()) {
+				lVo = new LecturerVo();
+				
+				lVo.setIdx(rs.getInt("idx"));
+				lVo.setName(rs.getString("name"));
+				lVo.setMajor(rs.getString("major"));
+				lVo.setField(rs.getString("field"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, psmt, rs);
+		}
+		return lVo;
+	}
+
+	public void updateLecturer(LecturerVo lVo) {
+		String sql = "update lecturer_tbl set name=?, Major=? where idx=?";
+
+		Connection conn = null;
+		PreparedStatement psmt = null;
+
+		try {
+			conn = DBManager.getConnection();
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, lVo.getName());
+			psmt.setString(2, lVo.getMajor());
+			psmt.setInt(3, lVo.getIdx());
+			
+			psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, psmt);
+		}
+	}
+	
+	public void deleteLecturer(int idx) {
 		String sql = "delete from lecturer_tbl where idx=?";
 		
 		Connection conn = null;
 		PreparedStatement psmt = null;
-		
+
 		try {
 			conn = DBManager.getConnection();
 			psmt = conn.prepareStatement(sql);
@@ -292,9 +345,4 @@ public class CourseDao {
 			DBManager.close(conn, psmt);
 		}
 	}
-	
-	
-	
-	
-		
 }

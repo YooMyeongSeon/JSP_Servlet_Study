@@ -5,20 +5,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>교과목 관리 사이트</title>
+<title>서버 프로그램 구현</title>
 <link type="text/css" rel="stylesheet" href="CSS/Style.css">
 <style>
-	#add {
-		float: right;
-	}
 	#course {
 		float: left;
+		margin-top: 10px;
+		width: 80px;
+		height: 25px;
+	}
+	h3 {
+		width: 500px;
+		margin: 0px auto;
+	}
+	#add {
+		float: right;
+		width: 80px;
+		height: 25px;
 	}
 </style>
 </head>
 <body>
+	<jsp:include page="/Header.html"/>
 	<div>
-		<h1>교과목 관리 사이트</h1>
+		<button id="course" onclick="location.href='CS?command=courseListAction'">교과목 보기</button>
 		<h3>총 <span style="font-size: 20pt; color:#4371c6">${lecturerList.size()}</span>명의 강사가 있습니다.</h3>
 		<table>
 			<tr>
@@ -34,9 +44,8 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<span id="course"><button onclick="location.href='CS?command=courseListAction'">교과목 보기</button></span>
-		<span id="add"><button onclick="location.href='CS?command=lecturerAddFormAction'">강사 등록</button></span>
-		<p>Copyright(c) 2022 그린 아카데미 All right Reserved</p>
+		<button id="add" onclick="location.href='CS?command=lecturerAddFormAction'">강사 등록</button>
 	</div>
+	<jsp:include page="/Footer.html"/>
 </body>
 </html>

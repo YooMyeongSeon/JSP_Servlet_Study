@@ -1,17 +1,24 @@
 @charset "UTF-8";
 
-div {
+* {
+	padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body {
 	text-align: center;
-	margin: 50px auto;
-	width: 1200px;
 }
 h1 {
 	color: #4371c6;
+	margin: 40px;
+}
+div {
+	margin: 0 auto;
+	width: 1200px;
 }
 table {
-	margin-top: 10px;
+	margin: 20px 0px;
 	width: 1200px;
-	margin-bottom: 10px;
 }
 th {
 	background-color: #4371c6;

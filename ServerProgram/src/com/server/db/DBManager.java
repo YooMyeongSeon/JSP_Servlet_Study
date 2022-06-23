@@ -21,6 +21,7 @@ public class DBManager {
 		}
 		return conn;
 	}
+	
 	public static void close(Connection conn, Statement stmt) {
 		try {
 			if (conn != null)conn.close();
@@ -29,6 +30,7 @@ public class DBManager {
 			e.printStackTrace();
 		}
 	}
+	
 	public static void close(Connection conn, Statement stmt, ResultSet rs) {
 		try {
 			if (conn != null)conn.close();

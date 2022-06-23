@@ -5,30 +5,42 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>교과목 관리 사이트</title>
+<title>서버 프로그램 구현</title>
 <link type="text/css" rel="stylesheet" href="CSS/Style.css">
 <style>
-	table {
-		margin: 0 auto;
+	div {
 		width: 600px;
-		margin-bottom: 10px;
+	}
+	table {
+		margin: 20px auto;
+		width: 600px;
 	}
 	th {
 		width: 200px;
 	}
 	td {
 		width: 400px;
+		padding: 10px 20px;
 	}
 	.input {
-		width: 380px;
+		width: 360px;
 		outline: none;
 		border: none;
+	}
+	#sbm, #lst {
+		width: 80px;
+		height: 25px;
+		float: left;
+		margin: 0px 10px;
+	}
+	#sbm {
+		margin-left: 210px;
 	}
 </style>
 </head>
 <body>
+	<jsp:include page="/Header.html"/>
 	<div>
-		<h1>교과목 관리 사이트</h1>
 		<h3>강사 등록</h3>
 		<form action="CS" method="post">
 			<input type="hidden" name="command" value="lecturerAddAction">
@@ -50,10 +62,10 @@
 					<td><input class="input" type="text" name="field" placeholder="세부 전공 입력" required></td>
 				</tr>
 			</table>
-			<input type="submit" value="등록">
-			<button onclick="location.href='CS?command=lecturerListAction'">취소</button>
+			<input id="sbm" type="submit" value="등록">
 		</form>
-		<p>Copyright(c) 2022 그린 아카데미 All right Reserved</p>
+		<button id="lst" onclick="location.href='CS?command=lecturerListAction'">취소</button>
 	</div>
+	<jsp:include page="/Footer.html"/>
 </body>
 </html>
