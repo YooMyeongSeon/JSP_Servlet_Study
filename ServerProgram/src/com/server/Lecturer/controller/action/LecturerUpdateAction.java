@@ -19,6 +19,7 @@ public class LecturerUpdateAction implements Action {
 		lVo.setIdx(Integer.parseInt(request.getParameter("idx")));
 		lVo.setName(request.getParameter("name"));
 		lVo.setMajor(request.getParameter("major"));
+		lVo.setField(request.getParameter("field"));
 		
 		CourseDao dao = CourseDao.getInstance();
 		dao.updateLecturer(lVo);

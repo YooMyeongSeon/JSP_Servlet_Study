@@ -198,7 +198,7 @@ public class CourseDao {
 	public List<LecturerVo> selectAllLecturer() {
 		List<LecturerVo> list = new ArrayList<>();
 
-		String sql = "select * from lecturer_tbl";
+		String sql = "select * from lecturer_tbl order by idx";
 		
 		Connection conn = null;
 		Statement stmt = null;
@@ -276,8 +276,9 @@ public class CourseDao {
 
 	public LecturerVo selectLecturerByNum(int idx) {
 		LecturerVo lVo = null;
+		List<String> list = new ArrayList<String>();
 		
-		String sql = "select * from lecturer_tbl where idx=?";
+		String sql = "select idx, l.name, major, field, c.name course from lecturer_tbl l, course_tbl c where c.lecturer(+) = l.idx and idx=?";
 		
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -289,14 +290,16 @@ public class CourseDao {
 			psmt.setInt(1, idx);
 			rs = psmt.executeQuery();
 			
-			if (rs.next()) {
+			while (rs.next()) {
 				lVo = new LecturerVo();
 				
 				lVo.setIdx(rs.getInt("idx"));
 				lVo.setName(rs.getString("name"));
 				lVo.setMajor(rs.getString("major"));
 				lVo.setField(rs.getString("field"));
+				list.add(rs.getString("course"));
 			}
+			lVo.setCourse(list);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -306,7 +309,7 @@ public class CourseDao {
 	}
 
 	public void updateLecturer(LecturerVo lVo) {
-		String sql = "update lecturer_tbl set name=?, Major=? where idx=?";
+		String sql = "update lecturer_tbl set name=?, Major=?, field=? where idx=?";
 
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -317,7 +320,8 @@ public class CourseDao {
 			
 			psmt.setString(1, lVo.getName());
 			psmt.setString(2, lVo.getMajor());
-			psmt.setInt(3, lVo.getIdx());
+			psmt.setString(3, lVo.getField());
+			psmt.setInt(4, lVo.getIdx());
 			
 			psmt.executeUpdate();
 		} catch (Exception e) {

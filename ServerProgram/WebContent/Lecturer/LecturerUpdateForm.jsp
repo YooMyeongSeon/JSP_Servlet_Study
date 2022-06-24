@@ -21,6 +21,7 @@
 	td {
 		width: 400px;
 		padding: 10px 20px;
+		text-align: left;
 	}
 	.input {
 		width: 380px;
@@ -45,6 +46,9 @@
 	#sbm {
 		margin-left: 160px;
 	}
+	#course {
+		font-size: 9pt;
+	}
 </style>
 </head>
 <body>
@@ -68,7 +72,16 @@
 				</tr>
 				<tr>
 					<th>세부 전공</th>
-					<td><span id="field">${lVo.field}</span></td>
+					<td><input class="input" type="text" name="field" value="${lVo.field}" required></td>
+				</tr>
+				<tr>
+					<th>담당 과목</th>
+					<td id="course">
+						<c:forEach items="${lVo.course}" var="course" varStatus="count">
+							${course}
+							<c:if test="${!count.last}">,</c:if>
+						</c:forEach>
+					</td>
 				</tr>
 			</table>
 			<input id="sbm" type="submit" value="수정" id="submit">
@@ -79,11 +92,7 @@
 	<jsp:include page="/Footer.html"/>
 	<script type="text/javascript">
 		function check() {
-			if (!confirm("강사를 삭제하시겠습니까?")) {
-				return false;
-		    } else {
-		    	location.href="CS?command=lecturerDeleteAction&idx=${lVo.idx}";
-		    }
+			if (confirm("강사를 삭제하시겠습니까?")) {location.href="CS?command=lecturerDeleteAction&idx=${lVo.idx}";}
 		}
 	</script>
 </body>

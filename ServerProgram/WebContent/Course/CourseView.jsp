@@ -91,11 +91,7 @@
 	<jsp:include page="/Footer.html"/>
 	<script type="text/javascript">
 		function check() {
-			if (!confirm("교과목을 삭제하시겠습니까?")) {
-				return false;
-		    } else {
-	   			location.href="CS?command=courseDeleteAction&id=${cVo.id}";
-		    }
+			if (confirm("교과목을 삭제하시겠습니까?")) {location.href="CS?command=courseDeleteAction&id=${cVo.id}";}
 		}
 	</script>
 </body>

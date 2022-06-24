@@ -1,10 +1,13 @@
 package com.server.vo;
 
+import java.util.List;
+
 public class LecturerVo {
 	private int idx;
 	private String name;
 	private String major;
 	private String field;
+	private List<String> course;
 	
 	public int getIdx() {
 		return idx;
@@ -29,5 +32,11 @@ public class LecturerVo {
 	}
 	public void setField(String field) {
 		this.field = field;
+	}
+	public List<String> getCourse() {
+		return course;
+	}
+	public void setCourse(List<String> course) {
+		this.course = course;
 	}
 }
