@@ -155,7 +155,7 @@
 		<Context docBase="ServerProgram" path="/ServerProgram" reloadable="true" source="org.eclipse.jst.jee.server:ServerProgram">
 			<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle.interstander.com:41521:XE" username="green03"/>
 		</Context>
-		<Context docBase="web12" path="/web12" reloadable="true" source="org.eclipse.jst.jee.server:web12"/></Host>
+		<Context docBase="web12" path="/web12" reloadable="true" source="org.eclipse.jst.jee.server:web12"/><Context docBase="VotingProgram" path="/VotingProgram" reloadable="true" source="org.eclipse.jst.jee.server:VotingProgram"/></Host>
     </Engine>
   </Service>
 </Server>

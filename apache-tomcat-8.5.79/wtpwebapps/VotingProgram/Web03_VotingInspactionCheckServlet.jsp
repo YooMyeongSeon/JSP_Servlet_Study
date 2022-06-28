@@ -29,11 +29,21 @@
 					<td>
 						19${fn:substring(vote.v_Jumin,0,2)}년 ${fn:substring(vote.v_Jumin,2,4)}월 ${fn:substring(vote.v_Jumin,4,6)}일생
 					</td>
-					<td></td>
-					<td></td>				
+					<td>
+						만 ${2020 - (1900 + (fn:substring(vote.v_Jumin,0,2)))}살
+					</td>
+					<td>
+						<c:if test="${(fn:substring(vote.v_Jumin,6,7)) == 1}">남</c:if>
+						<c:if test="${(fn:substring(vote.v_Jumin,6,7)) == 2}">여</c:if>
+					</td>				
 					<td>${vote.m_No}</td>
-					<td></td>
-					<td>${vote.v_Confirm}</td>
+					<td>
+						${fn:substring(vote.v_Time,0,2)}:${fn:substring(vote.v_Time,2,4)}
+					</td>
+					<td>
+						<c:if test="${vote.v_Confirm == 'Y'}">확인</c:if>
+						<c:if test="${vote.v_Confirm == 'N'}">미확인</c:if>
+					</td>
 				</tr>
 			</c:forEach>
 		</table>
