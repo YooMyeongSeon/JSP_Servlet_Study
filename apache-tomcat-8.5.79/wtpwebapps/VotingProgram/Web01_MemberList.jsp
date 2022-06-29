@@ -24,23 +24,23 @@
 				<th>지역구</th>
 				<th>대표전화</th>
 			</tr>
-			<c:forEach items="${list}" var="member">
+			<c:forEach items="${list}" var="member"> <!-- forEach로 받아온 리스트 출력 -->
 				<tr>
 					<td>${member.m_No}</td>
 					<td>${member.m_Name}</td>
 					<td>${member.p_Name}</td>
 					<td>
-						<c:if test="${member.p_School == 1}">고졸</c:if>
+						<c:if test="${member.p_School == 1}">고졸</c:if> <!-- if문으로 조건별 학력 변경 -->
 						<c:if test="${member.p_School == 2}">학사</c:if>
 						<c:if test="${member.p_School == 3}">석사</c:if>
 						<c:if test="${member.p_School == 4}">박사</c:if>
 					</td>
 					<td>
-						${fn:substring(member.m_Jumin,0,6)}-${fn:substring(member.m_Jumin,6,13)}
+						${fn:substring(member.m_Jumin,0,6)}-${fn:substring(member.m_Jumin,6,13)} <!-- 함수를 이용하여 문자열을 잘라서 주민번호 표시 -->
 					</td>
 					<td>${member.m_City}</td>
 					<td>
-						<fmt:formatNumber value="${member.p_Tel1}" pattern="00"/>-${member.p_Tel2}-<fmt:formatNumber value="${member.p_Tel3}" pattern="0000"/>
+						${member.p_Tel1}-${member.p_Tel2}-${member.p_Tel3} <!-- El표기법으로 차례대로 정렬 -->
 					</td>
 				</tr>
 			</c:forEach>

@@ -18,7 +18,7 @@
 				<th>성명</th>
 				<th>총투표건수</th>
 			</tr>
-			<c:forEach items="${rankList}" var="rank">
+			<c:forEach items="${rankList}" var="rank"> <!-- 받아온 리스트 출력 -->
 				<tr>
 					<td>${rank.m_no}</td>
 					<td>${rank.m_name}</td>

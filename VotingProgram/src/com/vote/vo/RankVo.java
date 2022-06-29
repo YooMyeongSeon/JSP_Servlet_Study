@@ -1,6 +1,6 @@
 package com.vote.vo;
 
-public class RankVo {
+public class RankVo { //후보자 등수 조회에 사용
 	private int m_no;
 	private String m_name;
 	private int voteCount;

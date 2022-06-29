@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>지역구의원투표 프로그램</title>
 <link type="text/css" rel="stylesheet" href="CSS/Style.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-- 제이쿼리 사용 -->
 </head>
 <body>
 	<jsp:include page="/Header.html"/>
@@ -30,7 +30,7 @@
 							<select name="m_No" id="m_No">
 								<option value="" selected>후보를 선택하세요</option>
 								<c:forEach items="${list}" var="member">
-									<option value="${member.m_No}">[${member.m_No}]${member.m_Name}</option>
+									<option value="${member.m_No}">[${member.m_No}]${member.m_Name}</option> <!-- 후보 목록을 받아와 forEach로 모두 출력 -->
 								</c:forEach>
 							</select>
 						</div>
@@ -48,14 +48,14 @@
 					<th>유권자확인</th>
 					<td>
 						<div class="left">
-							<input class="v_Confirm" type="radio" name="v_Confirm" value="Y"> 확인　
+							<input class="v_Confirm" type="radio" name="v_Confirm" value="Y"> 확인  <!-- 라디오버튼으로 처리 -->
 							<input class="v_Confirm" type="radio" name="v_Confirm" value="N"> 미확인
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="3">
-						<input class="button" type="submit" value="투표하기" onclick="return check()">
+						<input class="button" type="submit" value="투표하기" onclick="return check()"> <!-- 버튼 클릭시 메서드 실행 -->
 						<input class="button" type="reset" value="다시하기" onclick="re()">
 					</td>
 				</tr>
@@ -65,7 +65,7 @@
 	<jsp:include page="/Footer.html"/>
 	<script type="text/javascript">
 		function check() {
-			if ($('#v_Jumin').val() == "") {
+			if ($('#v_Jumin').val() == "") {  <!-- 각 항목별 빈칸을 감지하여 되돌려 보내는 기능을 생성 -->
 				alert('주민번호가 입력되지 않았습니다!');
 				$('#v_Jumin').focus();
 				return false;
@@ -92,7 +92,6 @@
 			}
 			if ($('.v_Confirm').is(":checked") == false) {
 				alert('유권자확인이 선택되지 않았습니다!');
-				$('#v_Confirm').focus();
 				return false;
 			}
 			alert('투표하기 정보가 정상적으로 등록 되었습니다!');

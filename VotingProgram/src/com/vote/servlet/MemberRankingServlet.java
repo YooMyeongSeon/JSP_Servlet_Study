@@ -16,7 +16,7 @@ import com.vote.vo.RankVo;
 public class MemberRankingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { //후보자등수를 받아와 이동
 		VoteDao dao = VoteDao.getInstance();
 		List<RankVo> list = dao.getVoteRanking();
 		

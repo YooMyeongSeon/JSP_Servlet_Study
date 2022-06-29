@@ -16,7 +16,7 @@ import com.vote.vo.MemberVO;
 public class MemberListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { //투표검수조회 기능
 		VoteDao dao = VoteDao.getInstance();
 		List<MemberVO> list = dao.selectMember();
 		

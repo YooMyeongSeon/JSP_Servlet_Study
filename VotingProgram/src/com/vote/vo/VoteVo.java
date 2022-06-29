@@ -1,6 +1,6 @@
 package com.vote.vo;
 
-public class VoteVo {
+public class VoteVo { //투표검수 조회에 사용
 	private String v_Jumin;
 	private String v_Name;
 	private int m_No;

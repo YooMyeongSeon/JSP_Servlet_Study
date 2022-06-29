@@ -12,7 +12,7 @@ import com.vote.vo.MemberVO;
 import com.vote.vo.RankVo;
 import com.vote.vo.VoteVo;
 
-public class VoteDao {
+public class VoteDao { //데이터 베이스와 연결하여 동작하는 클래스, 싱글턴 패턴으로 구성
 	private VoteDao() {}
 	
 	private static VoteDao dao = new VoteDao();
@@ -21,10 +21,10 @@ public class VoteDao {
 		return dao;
 	}
 	
-	public List<VoteVo> selectVote() {
+	public List<VoteVo> selectVote() { //투표검수조회 기능
 		List<VoteVo> list = new ArrayList<>();
 		
-		String sql = "SELECT * FROM TBL_VOTE_202005 WHERE V_AREA='제1투표장'";
+		String sql = "SELECT * FROM TBL_VOTE_202005 WHERE V_AREA='제1투표장'"; //제1투표장에서 투표한 인원들만 조회
 		
 		Connection con = null;
 		Statement stmt = null;
@@ -54,10 +54,10 @@ public class VoteDao {
 		return list;
 	}
 
-	public List<MemberVO> selectMember() {
+	public List<MemberVO> selectMember() { //후보조회, 투표하기의 후보 항목을 불러오는 기능
 		List<MemberVO> list = new ArrayList<>();
 		
-		String sql = "SELECT * FROM TBL_MEMBER_202005 M JOIN TBL_PARTY_202005 P ON M.P_CODE = P.P_CODE";
+		String sql = "SELECT * FROM TBL_MEMBER_202005 M JOIN TBL_PARTY_202005 P ON M.P_CODE = P.P_CODE"; //후보 테이블과 정당 테이블을 조인하여 조회
 		
 		Connection con = null;
 		Statement stmt = null;
@@ -77,9 +77,9 @@ public class VoteDao {
 				mVo.setM_Jumin(rs.getString("M_JUMIN"));
 				mVo.setM_City(rs.getString("M_CITY"));
 				mVo.setP_Name(rs.getString("P_Name"));
-				mVo.setP_Tel1(rs.getInt("P_Tel1"));
-				mVo.setP_Tel2(rs.getInt("P_Tel2"));
-				mVo.setP_Tel3(rs.getInt("P_Tel3"));
+				mVo.setP_Tel1(rs.getString("P_Tel1"));
+				mVo.setP_Tel2(rs.getString("P_Tel2"));
+				mVo.setP_Tel3(rs.getString("P_Tel3"));
 				
 				list.add(mVo);
 			}
@@ -91,8 +91,8 @@ public class VoteDao {
 		return list;
 	}
 
-	public void addVote(VoteVo vVo) {
-		String sql = "INSERT INTO TBL_VOTE_202005 VALUES(?, ?, ?, ?, ?, ?)";
+	public void addVote(VoteVo vVo) { //투표를 저장하는 기능
+		String sql = "INSERT INTO TBL_VOTE_202005 VALUES(?, ?, ?, ?, ?, ?)"; //받아온 정보들을 테이블에 저장
 		
 		Connection con = null;
 		PreparedStatement psmt = null;
@@ -116,15 +116,16 @@ public class VoteDao {
 		}
 	}
 	
-	public List<RankVo> getVoteRanking() {
+	public List<RankVo> getVoteRanking() { //후보자등수 조회 기능
 		List<RankVo> list = new ArrayList<>();
 		
-		String sql = "SELECT v.m_no, m.m_name, count(v.m_no) as voting " + 
-				" FROM TBL_VOTE_202005 v INNER JOIN TBL_MEMBER_202005 m " + 
+		//카운트, 조인, 그룹을 이용해 총투표건수 등수 조회  
+		String sql = "SELECT m.m_no, m.m_name, count(v.m_no) as voting " + 
+				" FROM TBL_MEMBER_202005 m LEFT OUTER JOIN TBL_VOTE_202005 v " + 
 				" ON v.m_no = m.m_no " + 
-				" WHERE v.V_CONFIRM = 'Y' " + 
-				" GROUP BY v.m_no, m.m_name " + 
-				" ORDER BY count(v.m_no) DESC";
+				" WHERE v.v_CONFIRM ='Y' " + //투표이력테이블(TBL_VOTE_202005 v)의 '유권자항목' 데이터가 'Y'인 데이터 건수 출력
+				" GROUP BY m.m_no, m.m_name " + 
+				" ORDER BY count(v.m_no) DESC"; //총투표건수 내림차순
 		
 		Connection conn = null;
 		Statement stmt = null;

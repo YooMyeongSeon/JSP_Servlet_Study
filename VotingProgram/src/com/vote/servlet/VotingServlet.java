@@ -17,7 +17,7 @@ import com.vote.vo.VoteVo;
 public class VotingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { //후보자 목록을 받아와 투표하기 폼으로 이동
 		String url = "/Web02_Voting.jsp";
 		
 		VoteDao dao = VoteDao.getInstance();
@@ -27,7 +27,7 @@ public class VotingServlet extends HttpServlet {
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { //받아온 투표 항목을 데이터베이스에 저장
 		request.setCharacterEncoding("UTF-8");
 		VoteVo vVo = new VoteVo();
 		

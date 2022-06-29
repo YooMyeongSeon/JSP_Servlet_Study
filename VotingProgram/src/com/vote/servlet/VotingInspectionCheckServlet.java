@@ -16,7 +16,7 @@ import com.vote.vo.VoteVo;
 public class VotingInspectionCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { //투표검수조회 항목들을 받아와 이동
 		String url = "/Web03_VotingInspactionCheckServlet.jsp";
 		
 		VoteDao dao = VoteDao.getInstance();
