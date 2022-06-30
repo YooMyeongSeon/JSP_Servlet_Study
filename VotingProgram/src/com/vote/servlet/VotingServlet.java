@@ -40,8 +40,7 @@ public class VotingServlet extends HttpServlet {
 		
 		VoteDao dao = VoteDao.getInstance();
 		dao.addVote(vVo);
-		
-		System.out.println(vVo.getV_Name());
+
 		response.sendRedirect("index.jsp");
 	}
 }
