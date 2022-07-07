@@ -8,13 +8,12 @@
 <meta charset="UTF-8">
 <title>게시물 조회</title>
 <link type="text/css" rel="stylesheet" href="CSS/Board.css">
-<script src="./jQuery/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 	<jsp:include page="/Header.html"/>
 	<section>
 		<p>게시물 조회</p>
-		<form>
 		<table>
 			<tr>
 				<th>제목</th>
@@ -32,18 +31,23 @@
 			<tr>
 				<th colspan="4">댓글 조회</th>
 			</tr>
-			<c:forEach items="${list}" var="comment">
-				<tr>
-					<td colspan="4">${comment.writer} / ${comment.content} / ${fn:substring(comment.regdate,0,16)} / <a href="javascript:delcmt(${comment.idx});">삭제</a></td>
-				</tr>
-			</c:forEach>
+			<tbody id="writeComment">
+				<c:forEach items="${list}" var="comment">
+					<tr id="idx${comment.idx}">
+						<td colspan="4">${comment.writer} / ${comment.content} / ${fn:substring(comment.regdate,0,16)} / <a href="javascript:delcmt();">삭제</a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
 			
-			<tr id="writeComment">
+			<tr>
 				<th>댓글 작성</th>
-				<td colspan="3"><input id="c_writer" type="text" name="c_writer" placeholder="작성자" required><input id="c_content" type="text" name="c_content" placeholder="댓글 내용" required><input id="c_btn" type="button" value="댓글 작성" onclick="wrcmt()"></td>
+				<td colspan="3">
+					<input id="c_writer" type="text" name="c_writer" placeholder="작성자" required>
+					<input id="c_content" type="text" name="c_content" placeholder="댓글 내용" required>
+					<button id="c_btn" onclick="wrcmt()">댓글 작성</button>
+				</td>
 			</tr>
 		</table>
-		</form>
 		<button onclick="location.href='BUS?idx=${bVo.idx}'">게시물 수정</button>
 		<button onclick="location.href='BDS?idx=${bVo.idx}'">게시물 삭제</button>
 		<button onclick="location.href='BLS'">목록</button>
@@ -51,12 +55,10 @@
 	<jsp:include page="/Footer.html"/>
 	<script type="text/javascript">
 		function wrcmt() {
-			alert("테스트");
 			let writer = $('#c_writer').val();
 			let content = $('#c_content').val();
 			
 			let comment = {"writer" : writer, "content" : content};
-			///////////////////////////////////////////////////////////////////
 			$.ajax({
 				type : "post",
 				async : true,
@@ -68,12 +70,11 @@
 					
 					let html = "";
 					
-					html += "<tr id=\"num" + num + "\">";
-					html += "<td>" + Info.num + "</td>";
-					html += "<td><a href=\"javascript:view(" + num + ");\">" + Info.title + "</a></td>";
-					html += "<td>" + Info.content + "</td>";
-					html += "<td>" + Info.date + "</td>";
-					html += "<td><a href=\"javascript:del(" + num + ");\">삭제</a></td>";
+					html += "<tr id=\"idx" + Info.idx + "\">";
+					html += "<td colspan=\"4\">";
+					html += Info.writer + " / " + Info.content + " / " + ${fn:substring(Info.regdate,0,16)} + " / ";
+					html += "<a href=\"javascript:delcmt();\">삭제</a>";
+					html += "</td>";
 					html += "</tr>";
 								
 					$("#writeComment").append(html);
@@ -83,9 +84,8 @@
 			$('#c_content').val("");
 		}
 		
-		function delcmt(delipx) {
-			let delipx = "#num" + JSON.stringify(delipx);
-			$(delipx).remove();
+		function delcmt() {
+			alert("테스트");
 		}
 	</script>
 </body>
