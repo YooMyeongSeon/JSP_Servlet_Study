@@ -9,6 +9,7 @@ import java.util.List;
 
 import board.db.DBManager;
 import board.vo.BoardVo;
+import board.vo.commentVo;
 
 public class BoardDao {
 	private BoardDao() {}
@@ -82,6 +83,103 @@ public class BoardDao {
 			DBManager.close(conn, psmt, rs);
 		}
 		return bVo;
+	}
+	
+	public List<commentVo> commentList(int idx) {
+		List<commentVo> list = new ArrayList<>();
+		
+		String sql = "select * from comment_tbl where bidx=?";
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, idx);
+			rs = psmt.executeQuery();
+			
+			while (rs.next()) {
+				commentVo cVo = new commentVo();
+				
+				cVo.setIdx(rs.getInt("idx"));
+				cVo.setWriter(rs.getString("writer"));
+				cVo.setContent(rs.getString("content"));
+				cVo.setRegdate(rs.getString("regdate"));
+				
+				list.add(cVo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, psmt, rs);
+		}
+		return list;
+	}
+
+	public void boardWrite(BoardVo bVo) {
+		String sql = "insert into board_tbl values (board_seq.nextval, ?, ?, ?, sysdate)";
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, bVo.getWriter());
+			psmt.setString(2, bVo.getSubject());
+			psmt.setString(3, bVo.getContent());
+			
+			psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, psmt);
+		}
+	}
+
+	public void boardUpdate(BoardVo bVo) {
+		String sql = "update board_tbl set writer=?, subject=?, content=? where idx=?";
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, bVo.getWriter());
+			psmt.setString(2, bVo.getSubject());
+			psmt.setString(3, bVo.getContent());
+			psmt.setInt(4, bVo.getIdx());
+			
+			psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, psmt);
+		}
+	}
+
+	public void boardDelete(int idx) {
+		String sql = "delete from board_tbl where idx=?";
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, idx);
+			
+			psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, psmt);
+		}
 	}
 	
 	

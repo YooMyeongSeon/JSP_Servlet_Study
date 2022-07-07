@@ -1,4 +1,4 @@
-@charset "UTF-8";
+ @charset "UTF-8";
 
 * {
 	margin: 0px;
@@ -7,7 +7,7 @@
 }
 
 header {
-	margin-top: 50px;
+	margin: 50px 0px 25px 0px;
 }
 
 body {
@@ -20,16 +20,12 @@ a {
 	color: #0078C8;
 }
 
-section {
-	text-align: center;
-}
-
 h1 {
 	color: #0078C8;
-	margin-bottom: 25px;
 }
 
 table {
+	min-width: 860px;
 	margin: 25px auto;
 }
 
@@ -53,20 +49,58 @@ th {
 }
 
 #content {
-	width: 860px;
-	height: 500px;
+	text-align:left;
+	vertical-align:top;
+	height: 300px;
+	padding: 30px;
 }
 
 input {
-	outline: none;
-	border: none;
+	width: 670px;
+	height: 20px;
 }
 
-button {
+button, .button {
 	width: 120px;
 	height: 40px;
 }
 
+textarea {
+	width: 670px;
+	height: 300px;
+}
+
+#c_writer {
+	width: 120px;
+	height: 30px;
+	margin-right: 10px;
+}
+
+#c_content {
+	width: 450px;
+	height: 30px;
+	margin-right: 10px;
+}
+
+#c_btn{
+	width: 120px;
+	height: 30px;
+}
+
+form {
+	width: 860px;
+	margin: 0px auto;
+}
+#wu_btn {
+	margin: 0px 10px 50px 305px;
+    float: left;	
+}
+
+#wu_btn_2 {
+	float: left;
+}
+
 footer {
-	margin-top: 50px;
+	clear:both;
+	margin: 50px 0px 150px;
 }

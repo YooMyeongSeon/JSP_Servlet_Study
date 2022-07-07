@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시판 목록</title>
+<title>게시물 목록</title>
 <link type="text/css" rel="stylesheet" href="CSS/Board.css">
 </head>
 <body>
@@ -25,11 +25,11 @@
 					<td>${board.idx}</td>
 					<td>${board.writer}</td>
 					<td class="subject"><a href="BVS?idx=${board.idx}">${board.subject}</a></td>
-					<td>${fn:substring(board.regdate,0,10)}</td>
+					<td>${fn:substring(board.regdate,0,16)}</td>
 				</tr>
 			</c:forEach>
 		</table>
-		<button onclick="location.href='BRS'">게시글 등록</button>
+		<button onclick="location.href='BWS'">게시물 작성</button>
 	</section>
 	<jsp:include page="/Footer.html"/>
 </body>

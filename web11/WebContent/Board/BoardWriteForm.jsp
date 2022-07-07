@@ -31,7 +31,7 @@
 				</tr>
 				<tr>
 					<th>글 내용</th>
-					<td><textarea rows="15" cols="70" name="content"></textarea></td>
+					<td><textarea name="content"></textarea></td>
 				</tr>
 				<tr>
 					<td colspan="2">
