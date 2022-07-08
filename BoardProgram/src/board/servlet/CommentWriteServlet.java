@@ -13,18 +13,15 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
+import board.dao.BoardDao;
 import board.vo.commentVo;
 
 @WebServlet("/CWS")
 public class CommentWriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		String getComment = request.getParameter("comment");
 		
 		JsonParser parser = new JsonParser();
@@ -32,13 +29,19 @@ public class CommentWriteServlet extends HttpServlet {
 		
 		commentVo cVo = new commentVo();
 		
-		cVo.setBidx(10);
+		cVo.setBidx(data.getAsJsonObject().get("bidx").getAsInt());
 		cVo.setWriter(data.getAsJsonObject().get("writer").getAsString());
 		cVo.setContent(data.getAsJsonObject().get("content").getAsString());
 		
+		BoardDao dao = BoardDao.getInstance();
+		dao.commentWrite(cVo);
+		
+		int idx = dao.commentSeq();
+		commentVo n_cVo = dao.commentByIdx(idx);
+		
 		Gson gson = new Gson();
 		
-		String commentJson = gson.toJson(cVo);
+		String commentJson = gson.toJson(n_cVo);
 		PrintWriter out = response.getWriter();
 		out.print(commentJson);
 	}

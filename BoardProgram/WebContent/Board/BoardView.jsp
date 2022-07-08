@@ -18,6 +18,7 @@
 			<tr>
 				<th>제목</th>
 				<td colspan="3">${bVo.subject}</td>
+				
 			</tr>
 			<tr>
 				<th>작성자</th>
@@ -34,14 +35,14 @@
 			<tbody id="writeComment">
 				<c:forEach items="${list}" var="comment">
 					<tr id="idx${comment.idx}">
-						<td colspan="4">${comment.writer} / ${comment.content} / ${fn:substring(comment.regdate,0,16)} / <a href="javascript:delcmt();">삭제</a></td>
+						<td colspan="4">${comment.writer} / ${comment.content} / ${fn:substring(comment.regdate,0,16)} / <a href="javascript:delcmt(${comment.idx});">삭제</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
-			
 			<tr>
 				<th>댓글 작성</th>
 				<td colspan="3">
+					<input id="boardIdx" type="hidden" value="${bVo.idx}">
 					<input id="c_writer" type="text" name="c_writer" placeholder="작성자" required>
 					<input id="c_content" type="text" name="c_content" placeholder="댓글 내용" required>
 					<button id="c_btn" onclick="wrcmt()">댓글 작성</button>
@@ -55,10 +56,11 @@
 	<jsp:include page="/Footer.html"/>
 	<script type="text/javascript">
 		function wrcmt() {
+			let bidx = $('#boardIdx').val();
 			let writer = $('#c_writer').val();
 			let content = $('#c_content').val();
 			
-			let comment = {"writer" : writer, "content" : content};
+			let comment = {"bidx" : bidx, "writer" : writer, "content" : content};
 			$.ajax({
 				type : "post",
 				async : true,
@@ -72,8 +74,8 @@
 					
 					html += "<tr id=\"idx" + Info.idx + "\">";
 					html += "<td colspan=\"4\">";
-					html += Info.writer + " / " + Info.content + " / " + ${fn:substring(Info.regdate,0,16)} + " / ";
-					html += "<a href=\"javascript:delcmt();\">삭제</a>";
+					html += Info.writer + " / " + Info.content + " / " + Info.regdate + " / ";
+					html += "<a href=\"javascript:delcmt(" + Info.idx + ");\">삭제</a>";
 					html += "</td>";
 					html += "</tr>";
 								
@@ -84,8 +86,22 @@
 			$('#c_content').val("");
 		}
 		
-		function delcmt() {
-			alert("테스트");
+		function delcmt(delidx) {
+			let idxId = "#idx" + JSON.stringify(delidx);
+			let idx = JSON.stringify(delidx);
+			
+			let s_Idx = {"idx" : idx}
+
+			$.ajax({
+				type : "post",
+				async : true,
+				url : "CDS",
+				data : {"idx" : JSON.stringify(s_Idx)},
+				datetype : "text",
+				success : function() {
+					$(idxId).remove();
+				}
+			});
 		}
 	</script>
 </body>
